@@ -1,0 +1,29 @@
+<h2>Views per day</h2>
+<table>
+  <% for views in @views_per_day %>
+    <tr>
+      <td><%= l views.day %></td>
+      <td><%= views.total %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h2>Top Pages</h2>
+<table>
+  <% for page in @pages %>
+    <tr>
+      <td><%= link_to page.path, page_view_path(site: page.host) + page.path %></td>
+      <td><%= page.total %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h2>Top referers</h2>
+<table>
+  <% for referer in @referers %>
+    <tr>
+      <td><%= referer.host %></td>
+      <td><%= referer.total %></td>
+    </tr>
+  <% end %>
+</table>

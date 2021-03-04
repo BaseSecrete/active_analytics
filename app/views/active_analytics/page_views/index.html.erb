@@ -1,0 +1,7 @@
+<h1>Sites</h1>
+
+<ul>
+  <% for site in @sites %>
+    <li><%= link_to site.host, page_view_path(site: site.host) %> <%= site.total %></li>
+  <% end %>
+</ul>
