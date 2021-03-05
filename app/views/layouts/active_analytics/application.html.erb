@@ -7,9 +7,13 @@
 
   <%= stylesheet_link_tag    "active_analytics/application", media: "all" %>
 </head>
+
 <body>
-
-<%= yield %>
-
+  <%= render "/layouts/active_analytics/header" %>
+  <main aria-label="Content">
+    <%= yield %>
+  </main>
+  <%= render "/layouts/active_analytics/aside" %>
+  <%= render "/layouts/active_analytics/footer" %>
 </body>
 </html>
