@@ -3,6 +3,7 @@ module ActiveAnalytics
     validates_presence_of :site, :page, :date
 
     scope :after, -> (date) { where("date > ?", date) }
+    scope :order_by_totals, -> { order(Arel.sql("SUM(total) DESC")) }
 
     class Page
       attr_reader :host, :path, :total
