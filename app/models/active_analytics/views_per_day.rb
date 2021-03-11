@@ -64,6 +64,7 @@ module ActiveAnalytics
 
     def self.append(params)
       vpd = find_or_initialize_by(params)
+      vpd.referer_path = nil if vpd.referer_path?
       vpd.total += 1 if vpd.persisted?
       vpd.save!
     end
