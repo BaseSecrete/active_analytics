@@ -55,7 +55,12 @@
       <tr>
         <td>
           <% if page.host == params[:site] %>
-            <%= link_to page.path, page_path(site: page.host, page: page.path) %>
+            <% if page.path.present? %>
+              <%= link_to page.path, page_path(site: page.host, page: page.path) %>
+            <% else %>
+              <%= link_to page.host, site_path(site: page.host) %>
+              <small>(page not provided <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy#strict-origin-when-cross-origin">?</a>)</small>
+            <% end %>
           <% elsif page.host.present? && page.path.present? %>
             <%= page.url %>
           <% else %>
