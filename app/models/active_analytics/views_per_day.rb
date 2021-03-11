@@ -5,6 +5,14 @@ module ActiveAnalytics
     scope :after, -> (date) { where("date > ?", date) }
     scope :order_by_totals, -> { order(Arel.sql("SUM(total) DESC")) }
 
+
+    class Site
+      attr_reader :host, :total
+      def initialize(host, total)
+        @host, @total = host, total
+      end
+    end
+
     class Page
       attr_reader :host, :path, :total
       def initialize(host, path, total)
@@ -21,7 +29,7 @@ module ActiveAnalytics
 
     def self.group_by_site
       group(:site).pluck("site, SUM(total)").map do |row|
-        Page.new(row[0], nil, row[1])
+        Site.new(row[0], row[1])
       end
     end
 
