@@ -44,14 +44,14 @@ module ActiveAnalytics
       end
     end
 
-    def self.group_by_referer_site
-      group(:referer_host).pluck("referer_host, SUM(total)").map do |row|
+    def self.group_by_referrer_site
+      group(:referrer_host).pluck("referrer_host, SUM(total)").map do |row|
         Site.new(row[0], row[1])
       end
     end
 
-    def self.group_by_referer_page
-      group(:referer_host, :referer_path).pluck("referer_host, referer_path, SUM(total)").map do |row|
+    def self.group_by_referrer_page
+      group(:referrer_host, :referrer_path).pluck("referrer_host, referrer_path, SUM(total)").map do |row|
         Page.new(row[0], row[1], row[2])
       end
     end
@@ -64,7 +64,7 @@ module ActiveAnalytics
 
     def self.append(params)
       vpd = find_or_initialize_by(params)
-      vpd.referer_path = nil if vpd.referer_path?
+      vpd.referrer_path = nil if vpd.referrer_path?
       vpd.total += 1 if vpd.persisted?
       vpd.save!
     end

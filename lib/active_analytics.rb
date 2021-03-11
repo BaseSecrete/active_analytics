@@ -11,9 +11,9 @@ module ActiveAnalytics
       date: Date.today,
     }
     if request.referer.present?
-      referer_uri = URI(request.referer)
-      params[:referer_host] = referer_uri.host
-      params[:referer_path] = referer_uri.path
+      referrer_uri = URI(request.referrer)
+      params[:referrer_host] = referrer_uri.host
+      params[:referrer_path] = referrer_uri.path
     end
     ViewsPerDay.append(params)
   rescue => ex
