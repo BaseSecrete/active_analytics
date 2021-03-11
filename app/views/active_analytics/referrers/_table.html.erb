@@ -1,0 +1,14 @@
+<table>
+  <% for referrer in referrers %>
+    <tr>
+      <td>
+        <% if referrer.host %>
+          <%= link_to referrer.host, referrer_path(site: params[:site], referrer: referrer.host) %>
+        <% else %>
+          <%= referrer.host %>
+        <% end %>
+        </td>
+      <td><%= referrer.total %></td>
+    </tr>
+  <% end %>
+</table>

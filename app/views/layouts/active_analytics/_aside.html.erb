@@ -3,10 +3,10 @@
     <% if params[:site].present? %>
       <ul role="menu" aria-label="Menu">
         <li role="menuitem" aria-haspopup="true" aria-expanded="true" tabindex="0">
-          <span class="menu__title"><%= params[:site] %></span>
+          <span class="menu__title"><%= link_to params[:site], site_path(site: params[:site]) %></span>
           <ul role="menu" aria-label="<%= params[:site] %> menu">
-            <li role="none"><%= link_to "Top pages", site_path(params[:site]), tabindex: -1, role: "menuitem" %></li>
-            <li role="none"><%= link_to "Top referers", "#TODO", tabindex: -1, role: "menuitem" %></li>
+            <li role="none"><%= link_to "Pages", site_path(params[:site]), tabindex: -1, role: "menuitem" %></li>
+            <li role="none"><%= link_to "Referrers", referrers_path(site: params[:site]), tabindex: -1, role: "menuitem" %></li>
           </ul>
         </li>
       </ul>

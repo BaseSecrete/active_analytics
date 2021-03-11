@@ -13,62 +13,16 @@
 </section>
 
 <section>
-  <h2>Top Pages</h2>
-  <table>
-    <% for page in @pages %>
-      <tr>
-        <td><%= link_to page.path, page_path(site: page.host, page: page.path) %></td>
-        <td><%= page.total %></td>
-      </tr>
-    <% end %>
-  </table>
-</section>
-
-<section>
   <h2>Top referers</h2>
-  <table>
-    <% for referer in @referers %>
-      <tr>
-        <td><%= referer.host %></td>
-        <td><%= referer.total %></td>
-      </tr>
-    <% end %>
-  </table>
-</section>
-
-<section>
-  <h2>Next Pages</h2>
-  <table>
-    <% for page in @next_pages %>
-      <tr>
-        <td><%= link_to page.path, page_path(site: page.host, page: page.path) %></td>
-        <td><%= page.total %></td>
-      </tr>
-    <% end %>
-  </table>
+  <%= render "/active_analytics/referrers/table", referrers: @referrers %>
 </section>
 
 <section>
   <h2>Previous Pages</h2>
-  <table>
-    <% for page in @previous_pages %>
-      <tr>
-        <td>
-          <% if page.host == params[:site] %>
-            <% if page.path.present? %>
-              <%= link_to page.path, page_path(site: page.host, page: page.path) %>
-            <% else %>
-              <%= link_to page.host, site_path(site: page.host) %>
-              <small>(page not provided <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy#strict-origin-when-cross-origin">?</a>)</small>
-            <% end %>
-          <% elsif page.host.present? && page.path.present? %>
-            <%= page.url %>
-          <% else %>
-            (None or direct)
-          <% end %>
-        </td>
-        <td><%= page.total %></td>
-      </tr>
-    <% end %>
-  </table>
+  <%= render "table", pages: @previous_pages %>
+</section>
+
+<section>
+  <h2>Next Pages</h2>
+  <%= render "table", pages: @next_pages %>
 </section>
