@@ -35,3 +35,35 @@
     <% end %>
   </table>
 </section>
+
+<section>
+  <h2>Next Pages</h2>
+  <table>
+    <% for page in @next_pages %>
+      <tr>
+        <td><%= link_to page.path, page_path(site: page.host, page: page.path) %></td>
+        <td><%= page.total %></td>
+      </tr>
+    <% end %>
+  </table>
+</section>
+
+<section>
+  <h2>Previous Pages</h2>
+  <table>
+    <% for page in @previous_pages %>
+      <tr>
+        <td>
+          <% if page.host == params[:site] %>
+            <%= link_to page.path, page_path(site: page.host, page: page.path) %>
+          <% elsif page.host.present? && page.path.present? %>
+            <%= page.url %>
+          <% else %>
+            (None or direct)
+          <% end %>
+        </td>
+        <td><%= page.total %></td>
+      </tr>
+    <% end %>
+  </table>
+</section>

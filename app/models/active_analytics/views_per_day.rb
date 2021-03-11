@@ -4,7 +4,8 @@ module ActiveAnalytics
 
     scope :after, -> (date) { where("date > ?", date) }
     scope :order_by_totals, -> { order(Arel.sql("SUM(total) DESC")) }
-
+    scope :order_by_date, -> { order(:date) }
+    scope :top, -> (n = 10) { order_by_totals.limit(n) }
 
     class Site
       attr_reader :host, :total
@@ -17,6 +18,10 @@ module ActiveAnalytics
       attr_reader :host, :path, :total
       def initialize(host, path, total)
         @host, @path, @total = host, path, total
+      end
+
+      def url
+        host + path
       end
     end
 
@@ -39,9 +44,15 @@ module ActiveAnalytics
       end
     end
 
-    def self.group_by_referer
+    def self.group_by_referer_site
       group(:referer_host).pluck("referer_host, SUM(total)").map do |row|
-        Page.new(row[0], nil, row[1])
+        Site.new(row[0], row[1])
+      end
+    end
+
+    def self.group_by_referer_page
+      group(:referer_host, :referer_path).pluck("referer_host, referer_path, SUM(total)").map do |row|
+        Page.new(row[0], row[1], row[2])
       end
     end
 
