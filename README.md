@@ -32,7 +32,7 @@ This is a basic `before_action`. In case you don't want to record all page views
 
 Finally just add the route to ActiveAnylytics at the desired endpoint:
 ```ruby
-mount ActiveAnalytics::Engine, at: "active_analytics"
+mount ActiveAnalytics::Engine, at: "analytics"
 ```
 
 ## Authentication and permissions

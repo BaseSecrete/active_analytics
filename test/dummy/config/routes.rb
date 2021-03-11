@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  mount ActiveAnalytics::Engine => "/active_analytics"
+  mount ActiveAnalytics::Engine => "/analytics"
 end
