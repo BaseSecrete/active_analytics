@@ -1,0 +1,18 @@
+<h1>Pages of <%= params[:site] %></h1>
+
+<section>
+  <h2>Views per day</h2>
+  <table>
+    <% for views in @views_per_day %>
+      <tr>
+        <td><%= l views.day %></td>
+        <td><%= views.total %></td>
+      </tr>
+    <% end %>
+  </table>
+</section>
+
+<section>
+  <h2>Pages</h2>
+  <%= render "/active_analytics/pages/table", pages: @pages %>
+</section>
