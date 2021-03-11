@@ -1,4 +1,4 @@
 module ActiveAnalytics
-  module PageViewsHelper
+  module PagesHelper
   end
 end

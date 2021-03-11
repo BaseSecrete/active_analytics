@@ -5,7 +5,7 @@
         <li role="menuitem" aria-haspopup="true" aria-expanded="true" tabindex="0">
           <span class="menu__title"><%= params[:site] %></span>
           <ul role="menu" aria-label="<%= params[:site] %> menu">
-            <li role="none"><%= link_to "Top pages", page_view_path, tabindex: -1, role: "menuitem" %></li>
+            <li role="none"><%= link_to "Top pages", site_path(params[:site]), tabindex: -1, role: "menuitem" %></li>
             <li role="none"><%= link_to "Top referers", "#TODO", tabindex: -1, role: "menuitem" %></li>
           </ul>
         </li>

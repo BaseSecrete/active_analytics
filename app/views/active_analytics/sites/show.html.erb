@@ -15,7 +15,7 @@
   <table>
     <% for page in @pages %>
       <tr>
-        <td><%= link_to page.path, page_view_path(site: page.host) + page.path %></td>
+        <td><%= link_to page.path, page_path(site: page.host, page: page.path) %></td>
         <td><%= page.total %></td>
       </tr>
     <% end %>
