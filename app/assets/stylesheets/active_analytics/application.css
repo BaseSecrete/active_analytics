@@ -15,6 +15,19 @@
  */
 
 body {
-  max-width: 800px;
+  max-width: var(--screen-s);
   margin: auto;
+}
+
+header {
+  padding-top: var(--space-4x);
+}
+
+main {
+  padding-top: var(--space-4x);
+  margin-bottom: var(--space-8x);
+}
+
+section {
+  margin-bottom: var(--space-4x);
 }

@@ -1,7 +1,9 @@
-<h1><%= page_from_params %></h1>
+<section>
+  <h2><%= page_from_params %></h2>
+</section>
 
 <section>
-  <h2>Views per day</h2>
+  <h3>Views per day</h3>
   <table>
     <% for views in @views_per_day %>
       <tr>
@@ -13,16 +15,16 @@
 </section>
 
 <section>
-  <h2>Top referrers</h2>
+  <h3>Top referrers</h3>
   <%= render "/active_analytics/referrers/table", referrers: @referrers %>
 </section>
 
 <section>
-  <h2>Previous Pages</h2>
+  <h3>Previous Pages</h3>
   <%= render "table", pages: @previous_pages %>
 </section>
 
 <section>
-  <h2>Next Pages</h2>
+  <h3>Next Pages</h3>
   <%= render "table", pages: @next_pages %>
 </section>

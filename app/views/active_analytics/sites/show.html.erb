@@ -1,5 +1,5 @@
 <section>
-  <h2>Views per day</h2>
+  <h3>Views per day</h3>
   <table>
     <% for views in @views_per_day %>
       <tr>
@@ -11,11 +11,13 @@
 </section>
 
 <section>
-  <h2>Top Pages</h2>
+  <h3>Top Pages</h3>
   <%= render "/active_analytics/pages/table", pages: @pages %>
+  <%= link_to "More", pages_path, role: "button" %></p>
 </section>
 
 <section>
-  <h2>Top referrers</h2>
+  <h3>Top referrers</h3>
   <%= render "/active_analytics/referrers/table", referrers: @referrers %>
+  <%= link_to "More", referrers_path, role: "button" %></p>
 </section>
