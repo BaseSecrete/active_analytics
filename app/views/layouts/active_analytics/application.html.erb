@@ -5,7 +5,8 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <%= stylesheet_link_tag    "active_analytics/application", media: "all" %>
+  <%= stylesheet_link_tag "active_analytics/application", media: "all" %>
+  <%= javascript_include_tag "active_analytics/application" %>
 </head>
 
 <body>
@@ -13,7 +14,6 @@
   <main aria-label="Content">
     <%= yield %>
   </main>
-  <%= render "/layouts/active_analytics/aside" %>
   <%= render "/layouts/active_analytics/footer" %>
 </body>
 </html>
