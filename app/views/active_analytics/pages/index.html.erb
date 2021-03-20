@@ -3,15 +3,7 @@
 </section>
 
 <section>
-  <h3>Views per day</h3>
-  <table>
-    <% for views in @views_per_day %>
-      <tr>
-        <td><%= l views.day %></td>
-        <td><%= views.total %></td>
-      </tr>
-    <% end %>
-  </table>
+  <%= render "/active_analytics/sites/histogram", histogram: @histogram %>
 </section>
 
 <section>

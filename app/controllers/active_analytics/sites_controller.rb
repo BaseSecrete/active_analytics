@@ -8,8 +8,7 @@ module ActiveAnalytics
 
     def show
       scope = ViewsPerDay.where(site: params[:site]).after(30.days.ago)
-      @views_per_day = scope.order_by_date.group_by_date
-      @histogram = ViewsPerDay::Histogram.new(@views_per_day)
+      @histogram = ViewsPerDay::Histogram.new(scope.order_by_date.group_by_date)
       @referrers = scope.top.group_by_referrer_site
       @pages = scope.top.group_by_page
     end

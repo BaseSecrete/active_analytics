@@ -86,6 +86,10 @@ module ActiveAnalytics
       end
     end
 
+    def self.to_histogram
+      ViewsPerDay::Histogram.new(self)
+    end
+
     def self.append(params)
       vpd = find_or_initialize_by(params)
       vpd.referrer_path = nil if vpd.referrer_path?
