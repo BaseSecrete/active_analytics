@@ -1,12 +1,23 @@
 <section>
   <h3>Views per day</h3>
-  <table>
-    <% for views in @views_per_day %>
+  <table class="charts-css column show-5-secondary-axes show-data-on-hover show-labels" style="height: calc(var(--space-2x) * 10);">
+    <thead>
       <tr>
-        <td><%= l views.day %></td>
-        <td><%= views.total %></td>
+        <th scope="col">Day</th>
+        <th scope="col">Views</th>
       </tr>
-    <% end %>
+    </thead>
+
+    <tbody>
+      <% for bar in @histogram.bars %>
+        <tr>
+          <th scope="row"><%= l bar.label, format: :short %></td>
+          <td style="--size: <%= bar.height %>; --color: rgb(240,241,243);">
+            <span class="data"><%= bar.value.to_i %></span>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
 </section>
 
