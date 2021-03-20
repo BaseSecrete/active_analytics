@@ -7,7 +7,8 @@ module ActiveAnalytics
     end
 
     def show
-      @pages = ViewsPerDay.where(site: params[:site], referrer_host: params[:referrer]).top(100).group_by_referrer_page
+      @previous_pages = ViewsPerDay.where(site: params[:site], referrer_host: params[:referrer]).top(100).group_by_referrer_page
+      @next_pages = ViewsPerDay.where(site: params[:site], referrer_host: params[:referrer]).top(100).group_by_page
     end
   end
 end
