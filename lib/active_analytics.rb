@@ -2,8 +2,6 @@ require "active_analytics/version"
 require "active_analytics/engine"
 
 module ActiveAnalytics
-  VERSION = "0.1.0"
-
   def self.record_request(request)
     params = {
       site: request.host,
