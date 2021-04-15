@@ -8,7 +8,7 @@
           <%= referrer.host %>
         <% end %>
         </td>
-      <td><%= referrer.total %></td>
+      <td><%= format_view_count referrer.total %></td>
     </tr>
   <% end %>
 </table>
