@@ -3,7 +3,7 @@
     <tr>
       <td>
         <% if referrer.host %>
-          <%= link_to referrer.host, referrer_path(site: params[:site], referrer: referrer.host) %>
+          <%= link_to referrer.host, referrer_path(site: params[:site], referrer: referrer.host, from: params[:from], to: params[:to]) %>
         <% else %>
           <%= referrer.host %>
         <% end %>

@@ -2,6 +2,7 @@ module ActiveAnalytics
   class ViewsPerDay < ApplicationRecord
     validates_presence_of :site, :page, :date
 
+    scope :between_dates, -> (from, to) { where("date BETWEEN ? AND ?", from, to) }
     scope :after, -> (date) { where("date > ?", date) }
     scope :order_by_totals, -> { order(Arel.sql("SUM(total) DESC")) }
     scope :order_by_date, -> { order(:date) }

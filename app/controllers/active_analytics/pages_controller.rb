@@ -5,13 +5,13 @@ module ActiveAnalytics
     include PagesHelper
 
     def index
-      scope = ViewsPerDay.where(site: params[:site]).after(30.days.ago)
+      scope = ViewsPerDay.where(site: params[:site]).between_dates(params[:from], params[:to])
       @histogram = ViewsPerDay::Histogram.new(scope.order_by_date.group_by_date)
       @pages = scope.top(100).group_by_page
     end
 
     def show
-      scope = ViewsPerDay.where(site: params[:site], page: page_from_params).after(30.days.ago)
+      scope = ViewsPerDay.where(site: params[:site], page: page_from_params).between_dates(params[:from], params[:to])
       @histogram = ViewsPerDay::Histogram.new(scope.order_by_date.group_by_date)
       @referrers = scope.top.group_by_referrer_site
 
