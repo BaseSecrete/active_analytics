@@ -17,7 +17,7 @@ rails active_analytics:install:migrations
 rails db:migrate
 ```
 
-Your controllers have to call `ActiveAnalytics.record_request(request)` to record pages views:
+Your controllers have to call `ActiveAnalytics.record_request(request)` to record page views:
 ```ruby
 class ApplicationController < ActionController::Base
   before_action :record_page_view
@@ -30,9 +30,9 @@ end
 
 This is a basic `before_action`. In case you don't want to record all page views, simply define a `skip_before_action :record_page_view` in the relevant controller.
 
-Finally just add the route to ActiveAnylytics at the desired endpoint:
+Finally just add the route to ActiveAnylytics dashboard at the desired endpoint:
 ```ruby
-mount ActiveAnalytics::Engine, at: "analytics"
+mount ActiveAnalytics::Engine, at: "analytics"  # http://localhost:3000/analytics
 ```
 
 ## Authentication and permissions
