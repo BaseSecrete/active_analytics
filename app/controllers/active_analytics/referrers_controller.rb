@@ -2,6 +2,8 @@ require_dependency "active_analytics/application_controller"
 
 module ActiveAnalytics
   class ReferrersController < ApplicationController
+    before_action :require_date_range
+
     def index
       scope = ViewsPerDay.where(site: params[:site])
       @referrers = scope.top(100).group_by_referrer_site

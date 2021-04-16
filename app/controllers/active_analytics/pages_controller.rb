@@ -4,6 +4,8 @@ module ActiveAnalytics
   class PagesController < ApplicationController
     include PagesHelper
 
+    before_action :require_date_range
+
     def index
       scope = ViewsPerDay.where(site: params[:site]).between_dates(params[:from], params[:to])
       @histogram = ViewsPerDay::Histogram.new(scope.order_by_date.group_by_date)

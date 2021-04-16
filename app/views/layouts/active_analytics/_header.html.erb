@@ -1,4 +1,4 @@
-<header>
+<header data-ariato="ActiveAnalytics.Header">
   <nav aria-label="site"> <!-- implicit role="navigation", aria label "site" is announced = "site navigation" -->
     <div role="toolbar" data-ariato="Application.Toolbar">
       <div role="group">
@@ -8,18 +8,27 @@
             <button type="button" id="site-menu-button" aria-haspopup="true" aria-controls="site-menu"><%= params[:site] %></button>
             <ul id="site-menu" role="menu" aria-labelledby="site-menu-button">
               <li role="none">
-                <%= link_to "Site", site_path(params[:site]), role: "menuitem", tabindex: -1 %>
+                <%= link_to "Site", site_path(params[:site], from: params[:from], to: params[:to]), role: "menuitem", tabindex: -1 %>
               </li>
               <li role="none">
-                <%= link_to "Pages", pages_path, role: "menuitem", tabindex: -1 %>
+                <%= link_to "Pages", pages_path(from: params[:from], to: params[:to]), role: "menuitem", tabindex: -1 %>
               </li>
               <li role="none">
-                <%= link_to "Referrers", referrers_path, role: "menuitem", tabindex: -1 %>
+                <%= link_to "Referrers", referrers_path(from: params[:from], to: params[:to]), role: "menuitem", tabindex: -1 %>
               </li>
             </ul>
           </div>
+          <button type="button" data-event="click->toggleDateRangeForm">
+            <%= l params[:from].to_date, format: :long %> → <%= l params[:to].to_date, format: :long %>
+          </button>
         <% end %>
       </div>
     </div>
   </nav>
+
+  <%= form_tag url_for(params.except(:from, :to).to_unsafe_hash), method: "get", hidden: true, id: "dateRangeForm" do %>
+    <label>From <%= text_field_tag :from, params[:from] %></label>
+    <label>To <%= text_field_tag :to, params[:to] %></label>
+    <%= submit_tag "Change date range" %>
+  <% end %>
 </header>

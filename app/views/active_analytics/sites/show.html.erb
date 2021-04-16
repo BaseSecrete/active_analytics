@@ -6,11 +6,11 @@
 <section>
   <h3>Top Pages</h3>
   <%= render "/active_analytics/pages/table", pages: @pages %>
-  <p style="text-align: center;"><br/><%= link_to "More pages", pages_path, role: "button"%></p>
+  <p style="text-align: center;"><br/><%= link_to "More pages", pages_path(from: params[:from], to: params[:to]), role: "button"%></p>
 </section>
 
 <section>
   <h3>Top referrers</h3>
   <%= render "/active_analytics/referrers/table", referrers: @referrers %>
-  <p style="text-align: center;"><br/><%= link_to "More referrers", referrers_path, role: "button" %></p>
+  <p style="text-align: center;"><br/><%= link_to "More referrers", referrers_path(from: params[:from], to: params[:to]), role: "button" %></p>
 </section>
