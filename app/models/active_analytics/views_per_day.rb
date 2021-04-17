@@ -92,10 +92,8 @@ module ActiveAnalytics
     end
 
     def self.append(params)
-      vpd = find_or_initialize_by(params)
-      vpd.referrer_path = nil if vpd.referrer_path?
-      vpd.total += 1 if vpd.persisted?
-      vpd.save!
+      params[:referrer_path] = nil if params[:referrer_path].blank?
+      find_or_create_by!(params) if where(params).update_all("total = total + 1") == 0
     end
   end
 end
