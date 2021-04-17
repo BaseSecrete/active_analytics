@@ -18,7 +18,7 @@ module ActiveAnalytics
       @referrers = scope.top.group_by_referrer_site
 
       @next_pages = ViewsPerDay.where(referrer_host: params[:site], referrer_path: page_from_params).top.group_by_page
-      @previous_pages = ViewsPerDay.where(site: params[:site], page: page_from_params).top.group_by_referrer_page
+      @previous_pages = ViewsPerDay.where(site: params[:site], page: page_from_params).where.not(referrer_path: nil).top.group_by_referrer_page
     end
   end
 end
