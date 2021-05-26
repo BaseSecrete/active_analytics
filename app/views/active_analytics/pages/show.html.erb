@@ -2,22 +2,25 @@
   <h2><%= page_from_params %></h2>
 </section>
 
-<section>
-  <h3>Views per day</h3>
+<section class="card">
+  <h3>Total views</h3>
   <%= render "/active_analytics/sites/histogram", histogram: @histogram %>
 </section>
 
-<section>
-  <h3>Top referrers</h3>
-  <%= render "/active_analytics/referrers/table", referrers: @referrers %>
-</section>
+<ul class="grid-auto">
+  <li class="card">
+    <section>
+      <h3>Top referrers</h3>
+      <%= render "/active_analytics/referrers/table", referrers: @referrers %>
+    </section>
+    <section>
+      <h3>Previous pages</h3>
+      <%= render "table", pages: @previous_pages %>
+    </section>
+  </li>
 
-<section>
-  <h3>Previous pages</h3>
-  <%= render "table", pages: @previous_pages %>
-</section>
-
-<section>
-  <h3>Next pages</h3>
-  <%= render "table", pages: @next_pages %>
-</section>
+  <li class="card">
+    <h3>Next pages</h3>
+    <%= render "table", pages: @next_pages %>
+  </li>
+</ul>

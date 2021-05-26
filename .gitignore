@@ -9,3 +9,5 @@
 /test/dummy/storage/
 /test/dummy/tmp/
 .byebug_history
+**/.DS_Store
+*.dump

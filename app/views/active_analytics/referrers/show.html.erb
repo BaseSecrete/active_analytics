@@ -1,18 +1,19 @@
 <section>
-  <h2>Referrer <%= params[:referrer] %></h2>
+  <h2>Referrer: <%= params[:referrer] %></h2>
 </section>
 
-<section>
+<section class="card">
   <h3>Views per day</h3>
   <%= render "/active_analytics/sites/histogram", histogram: @histogram %>
 </section>
+<ul class="grid-auto">
+  <li class="card">
+    <h3>Previous page</h3>
+    <%= render "/active_analytics/pages/table", pages: @previous_pages %>
+  </li>
 
-<section>
-  <h3>Sources</h3>
-  <%= render "/active_analytics/pages/table", pages: @previous_pages %>
-</section>
-
-<section>
-  <h3>Destinations</h3>
-  <%= render "/active_analytics/pages/table", pages: @next_pages %>
-</section>
+  <li class="card">
+    <h3>Next page</h3>
+    <%= render "/active_analytics/pages/table", pages: @next_pages %>
+  </li>
+</ul>

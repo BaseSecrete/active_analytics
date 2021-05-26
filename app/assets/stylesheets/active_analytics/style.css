@@ -1,0 +1,81 @@
+body {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+header {
+  padding-top: var(--space-4x);
+}
+
+main {
+  padding-top: var(--space-4x);
+  margin-bottom: var(--space-8x);
+}
+
+section {
+  margin-bottom: var(--space-4x);
+}
+
+table td.number { text-align: right; }
+
+.logo svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: rgba(var(--color-blue-500), 1);
+  stroke-width: 1;
+}
+
+[role="toolbar"] {
+  width: 100%;
+}
+
+[role="toolbar"] > *:last-child {
+  margin-left: auto;
+}
+
+.grid-auto {
+  --col-min-width: calc(var(--space) * 38);
+}
+
+
+.card h3 {
+  display: flex;
+}
+
+.card h3 a {
+  margin-left: auto;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.referer-favicon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  position: relative;
+  top: 3px;
+}
+
+div.is-empty {
+  display: flex;
+	align-items: center;
+  justify-content: center;
+  height: calc(100% - 72px);
+  width: 100%;
+  color: rgba(var(--color-grey-300), 1);
+}
+
+.card table {
+  margin: 0 -24px;
+  width: calc(100% + 48px);
+}
+
+tr td:first-of-type {
+  padding: 12px 0px 12px 24px;
+}
+
+tr td:last-of-type {
+  padding: 12px 24px 12px 0;
+}

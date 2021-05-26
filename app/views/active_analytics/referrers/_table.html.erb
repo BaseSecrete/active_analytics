@@ -1,14 +1,19 @@
-<table>
-  <% for referrer in referrers %>
-    <tr>
-      <td>
-        <% if referrer.host %>
-          <%= link_to referrer.host, referrer_path(site: params[:site], referrer: referrer.host, from: params[:from], to: params[:to]) %>
-        <% else %>
-          <%= referrer.host %>
-        <% end %>
-        </td>
-      <td class="number"><%= format_view_count referrer.total %></td>
-    </tr>
-  <% end %>
-</table>
+<% if referrers.empty? %>
+  no data
+<% else %>
+  <table>
+    <% for referrer in referrers %>
+      <tr>
+        <td>
+          <% if referrer.host %>
+            <img src="https://icons.duckduckgo.com/ip3/<%= referrer.host %>.ico" referrerpolicy="no-referrer" class="referer-favicon">
+            <%= link_to referrer.host, referrer_path(site: params[:site], referrer: referrer.host, from: params[:from], to: params[:to]) %>
+          <% else %>
+            <%= referrer.host %>
+          <% end %>
+          </td>
+        <td class="number"><%= format_view_count referrer.total %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

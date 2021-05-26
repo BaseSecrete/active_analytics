@@ -1,21 +1,28 @@
-<table>
-  <% for page in pages %>
-    <tr>
-      <td>
-        <% if page.host == params[:site] %>
-          <% if page.path.present? %>
-            <%= link_to page.path, page_path(site: page.host, page: page_to_params(page.path), from: params[:from], to: params[:to]) %>
+
+<% if pages.empty? %>
+  <div class="is-empty">
+    <span>no data</span>
+  </div>
+<% else %>
+  <table>
+    <% for page in pages %>
+      <tr>
+        <td>
+          <% if page.host == params[:site] %>
+            <% if page.path.present? %>
+              <%= link_to page.path, page_path(site: page.host, page: page_to_params(page.path), from: params[:from], to: params[:to]) %>
+            <% else %>
+              <%= link_to page.host, site_path(site: page.host, from: params[:from], to: params[:to]) %>
+              <small>(page not provided <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy#strict-origin-when-cross-origin">?</a>)</small>
+            <% end %>
+          <% elsif page.host.present? && page.path.present? %>
+            <%= page.url %>
           <% else %>
-            <%= link_to page.host, site_path(site: page.host, from: params[:from], to: params[:to]) %>
-            <small>(page not provided <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy#strict-origin-when-cross-origin">?</a>)</small>
+            (None or direct)
           <% end %>
-        <% elsif page.host.present? && page.path.present? %>
-          <%= page.url %>
-        <% else %>
-          (None or direct)
-        <% end %>
-      </td>
-      <td class="number"><%= format_view_count page.total %></td>
-    </tr>
-  <% end %>
-</table>
+        </td>
+        <td class="number"><%= format_view_count page.total %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
