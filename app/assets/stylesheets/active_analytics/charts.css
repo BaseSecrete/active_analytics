@@ -339,7 +339,7 @@ table.charts-css tfoot {
   border-color: rgba(var(--color-grey-500)) transparent transparent;
 }
 
-.charts-css td:hover .tooltip {
+.charts-css tr:hover .tooltip {
   visibility: visible;
   opacity: 1;
 }
