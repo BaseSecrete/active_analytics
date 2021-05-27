@@ -35,8 +35,11 @@
   </nav>
 
   <%= form_tag url_for(params.except(:from, :to).to_unsafe_hash), method: "get", hidden: true, id: "dateRangeForm" do %>
+
     <label>From <%= text_field_tag :from, params[:from] %></label>
     <label>To <%= text_field_tag :to, params[:to] %></label>
     <%= submit_tag "Change date range" %>
+
   <% end %>
+
 </header>

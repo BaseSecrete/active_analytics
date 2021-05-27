@@ -39,6 +39,14 @@ table td.number { text-align: right; }
   --col-min-width: calc(var(--space) * 38);
 }
 
+.tooltip-date {
+  color: rgba(var(--color-grey-100), 1);
+}
+
+.card {
+  position: relative;
+  overflow: visible;
+}
 
 .card h3 {
   display: flex;

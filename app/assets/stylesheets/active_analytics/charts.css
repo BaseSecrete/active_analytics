@@ -18,13 +18,9 @@
   --legend-border-color: rgba(var(--color-grey-200), 1);
   position: relative;
   display: block;
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
   border: 0;
-  -webkit-print-color-adjust: exact;
-  color-adjust: exact;
 }
 
 /*
@@ -70,20 +66,6 @@ table.charts-css tfoot {
   display: none;
 }
 
-/*
- * Reset list elements
- */
-ul.charts-css,
-ol.charts-css {
-  list-style-type: none;
-}
-
-ul.charts-css li,
-ol.charts-css li {
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
 
 /*
  * Chart colors
@@ -91,6 +73,7 @@ ol.charts-css li {
 
  .charts-css.column tbody tr td {
    background: rgba(var(--color-grey-100), 1);
+   padding: 0;
  }
 
 /*
@@ -115,7 +98,6 @@ ol.charts-css li {
 /*
  * Chart labels
  */
-
 
 .charts-css.column:not(.show-labels) {
   --labels-size: 0;
@@ -426,6 +408,8 @@ ol.charts-css li {
 .charts-css.column:not(.reverse) tbody tr th {
   bottom: calc(-1 * var(--labels-size) - var(--primary-axis-width));
   height: var(--labels-size);
+  color: rgba(var(--color-grey-400), 1);
+  font-weight: 400;
 }
 
 .charts-css.column:not(.reverse) tbody tr td {

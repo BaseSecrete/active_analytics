@@ -9,18 +9,18 @@
 
 <ul class="grid-auto">
   <li class="card">
-    <section>
-      <h3>Top referrers</h3>
+   <!-- <section>
+      <h3>Top sources</h3>
       <%= render "/active_analytics/referrers/table", referrers: @referrers %>
-    </section>
+    </section> -->
     <section>
-      <h3>Previous pages</h3>
+      <h3>Previous page</h3>
       <%= render "table", pages: @previous_pages %>
     </section>
   </li>
 
   <li class="card">
-    <h3>Next pages</h3>
+    <h3>Next page</h3>
     <%= render "table", pages: @next_pages %>
   </li>
 </ul>

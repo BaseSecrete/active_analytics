@@ -48,7 +48,7 @@ module ActiveAnalytics
         attr_reader :label, :value, :histogram
 
         def initialize(label, value, histogram)
-          @label, @value,@histogram = label, value, histogram
+          @label, @value, @histogram = label, value, histogram
         end
 
         def height
