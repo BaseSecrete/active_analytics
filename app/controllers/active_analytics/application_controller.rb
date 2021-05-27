@@ -5,7 +5,7 @@ module ActiveAnalytics
 
     def require_date_range
       if params[:from].blank? || params[:to].blank?
-        redirect_to(params.to_unsafe_hash.merge(from: 30.days.ago.to_date, to: Date.today))
+        redirect_to(params.to_unsafe_hash.merge(from: 7.days.ago.to_date, to: Date.today))
       end
     end
 
