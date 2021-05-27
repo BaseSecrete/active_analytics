@@ -1,16 +1,9 @@
 <table class="charts-css column show-5-secondary-axes hide-data show-labels" style="height: calc(var(--space-2x) * 10);">
-  <thead>
-    <tr>
-      <th scope="col">Day</th>
-      <th scope="col">Views</th>
-    </tr>
-  </thead>
-
   <tbody>
     <% for bar in histogram.bars %>
       <tr>
         <th scope="row"><%= bar.label.day %></td>
-        <td style="--size: <%= bar.height %>; --color: rgb(240,241,243);">
+        <td style="--size: <%= bar.height %>; --color: rgba(var(--color-grey-100), 1);">
           <span class="data"><%= bar.value.to_i %></span>
           <span class="tooltip"><%= l bar.label, format: :long%> <br/> <%= format_view_count bar.value %></span>
         </td>
