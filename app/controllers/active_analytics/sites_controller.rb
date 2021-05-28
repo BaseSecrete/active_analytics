@@ -6,6 +6,7 @@ module ActiveAnalytics
 
     def index
       @sites = ViewsPerDay.after(30.days.ago).order_by_totals.group_by_site
+      redirect_to(site_path(@sites.first.host)) if @sites.size == 1
     end
 
     def show
