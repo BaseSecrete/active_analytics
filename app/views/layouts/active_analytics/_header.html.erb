@@ -1,37 +1,36 @@
 <header data-ariato="ActiveAnalytics.Header">
   <nav aria-label="site"> <!-- implicit role="navigation", aria label "site" is announced = "site navigation" -->
-    <div role="toolbar" data-ariato="Application.Toolbar">
+    
+    <%#= link_to "Analytics", active_analytics_path, role: "button" %>
+    <%= link_to active_analytics_path, class: 'logo' do %>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 11">
+        <path class="a" d="M.5,5.5s0,2,1,2,1-2,1-2,0-2,1-2,1,2,1,2,0,2,1,2,1-2,1-2,0-2,1-2,1,2,1,2,0,2,1,2,1-2,1-2"/>
+        <circle class="a" cx="5.5" cy="5.5" r="5"/>
+        <line class="a" x1="0.5" y1="5.5" x2="10.5" y2="5.5"/>
+      </svg>
+    <% end %>
 
-        <%#= link_to "Analytics", active_analytics_path, role: "button" %>
-        <%= link_to active_analytics_path, class: 'logo' do %>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 11">
-            <path class="a" d="M.5,5.5s0,2,1,2,1-2,1-2,0-2,1-2,1,2,1,2,0,2,1,2,1-2,1-2,0-2,1-2,1,2,1,2,0,2,1,2,1-2,1-2"/>
-            <circle class="a" cx="5.5" cy="5.5" r="5"/>
-            <line class="a" x1="0.5" y1="5.5" x2="10.5" y2="5.5"/>
-          </svg>
-        <% end %>
-
-        <% if params[:site] %>
-           <%= link_to params[:site], site_path(params[:site], from: params[:from], to: params[:to]) %>
-           
-           <!--
-            <ul id="site-menu" role="menu" aria-labelledby="site-menu-button">
-              <li role="none">
-                <%= link_to "Site", site_path(params[:site], from: params[:from], to: params[:to]), role: "menuitem", tabindex: -1 %>
-              </li>
-              <li role="none">
-                <%= link_to "Pages", pages_path(from: params[:from], to: params[:to]), role: "menuitem", tabindex: -1 %>
-              </li>
-              <li role="none">
-                <%= link_to "Referrers", referrers_path(from: params[:from], to: params[:to]), role: "menuitem", tabindex: -1 %>
-              </li>
-            </ul>
-          </div>
-          -->
-          <button type="button" data-event="click->toggleDateRangeForm" class="is-pull-right">
-            <%= l params[:from].to_date, format: :long %> → <%= l params[:to].to_date, format: :long %>
-          </button>
-        <% end %>
+    <% if params[:site] %>
+        <%= link_to params[:site], site_path(params[:site], from: params[:from], to: params[:to]) %>
+        
+        <!--
+        <ul id="site-menu" role="menu" aria-labelledby="site-menu-button">
+          <li role="none">
+            <%= link_to "Site", site_path(params[:site], from: params[:from], to: params[:to]), role: "menuitem", tabindex: -1 %>
+          </li>
+          <li role="none">
+            <%= link_to "Pages", pages_path(from: params[:from], to: params[:to]), role: "menuitem", tabindex: -1 %>
+          </li>
+          <li role="none">
+            <%= link_to "Referrers", referrers_path(from: params[:from], to: params[:to]), role: "menuitem", tabindex: -1 %>
+          </li>
+        </ul>
+      </div>
+      -->
+      <button type="button" data-event="click->toggleDateRangeForm" class="is-pull-right">
+        <%= l params[:from].to_date, format: :long %> → <%= l params[:to].to_date, format: :long %>
+      </button>
+    <% end %>
   </nav>
 
   <%= form_tag url_for(params.except(:from, :to).to_unsafe_hash), method: "get", hidden: true, id: "dateRangeForm" do %>

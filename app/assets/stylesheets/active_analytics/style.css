@@ -1,12 +1,32 @@
 body {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 24px;
 }
 
-header {
-  padding-top: var(--space-4x);
+
+header nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
+
+header nav  > *:last-child {
+  margin-left: auto;
+}
+
+header .logo {
+  margin-right: 8px;
+}
+
+header .logo svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: rgba(var(--color-blue-500), 1);
+  stroke-width: 1;
+}
+
 
 main {
   padding-top: var(--space-4x);
@@ -18,22 +38,6 @@ section {
 }
 
 table td.number { text-align: right; }
-
-.logo svg {
-  width: 24px;
-  height: 24px;
-  fill: none;
-  stroke: rgba(var(--color-blue-500), 1);
-  stroke-width: 1;
-}
-
-[role="toolbar"] {
-  width: 100%;
-}
-
-[role="toolbar"] > *:last-child {
-  margin-left: auto;
-}
 
 .grid-auto {
   --col-min-width: calc(var(--space) * 38);
@@ -58,6 +62,19 @@ table td.number { text-align: right; }
   font-size: 1rem;
 }
 
+.card table {
+  margin: 0 -24px;
+  width: calc(100% + 48px);
+}
+
+tr td:first-of-type {
+  padding: 12px 0px 12px 24px;
+}
+
+tr td:last-of-type {
+  padding: 12px 24px 12px 0;
+}
+
 .referer-favicon {
   width: 16px;
   height: 16px;
@@ -73,17 +90,4 @@ div.is-empty {
   height: calc(100% - 72px);
   width: 100%;
   color: rgba(var(--color-grey-300), 1);
-}
-
-.card table {
-  margin: 0 -24px;
-  width: calc(100% + 48px);
-}
-
-tr td:first-of-type {
-  padding: 12px 0px 12px 24px;
-}
-
-tr td:last-of-type {
-  padding: 12px 24px 12px 0;
 }
