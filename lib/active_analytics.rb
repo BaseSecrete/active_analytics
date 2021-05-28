@@ -8,13 +8,13 @@ module ActiveAnalytics
       page: request.path,
       date: Date.today,
     }
-    if request.referer.present?
+    if request.referrer.present?
       referrer_uri = URI(request.referrer)
       params[:referrer_host] = referrer_uri.host
       params[:referrer_path] = referrer_uri.path
     end
     ViewsPerDay.append(params)
   rescue => ex
-    raise if Rails.env.development?
+    raise if Rails.env.development? || Rails.env.test?
   end
 end
