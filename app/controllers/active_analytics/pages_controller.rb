@@ -13,12 +13,13 @@ module ActiveAnalytics
     end
 
     def show
-      scope = ViewsPerDay.where(site: params[:site], page: page_from_params).between_dates(params[:from], params[:to])
-      @histogram = ViewsPerDay::Histogram.new(scope.order_by_date.group_by_date)
-      @referrers = scope.top.group_by_referrer_site
+      dates_scopes = ViewsPerDay.between_dates(params[:from], params[:to])
+      page_scope = dates_scopes.where(site: params[:site], page: page_from_params)
+      @histogram = ViewsPerDay::Histogram.new(page_scope.order_by_date.group_by_date)
+      @referrers = page_scope.top.group_by_referrer_site
 
-      @next_pages = ViewsPerDay.where(referrer_host: params[:site], referrer_path: page_from_params).top.group_by_page
-      @previous_pages = ViewsPerDay.where(site: params[:site], page: page_from_params).where.not(referrer_path: nil).top.group_by_referrer_page
+      @next_pages = dates_scopes.where(referrer_host: params[:site], referrer_path: page_from_params).top.group_by_page
+      @previous_pages = dates_scopes.where(site: params[:site], page: page_from_params).where.not(referrer_path: nil).top.group_by_referrer_page
     end
   end
 end

@@ -36,10 +36,10 @@
         <button type="button" id="date-range" aria-haspopup="true" aria-controls="date-range-menu"><%= l params[:from].to_date, format: :long %> → <%= l params[:to].to_date, format: :long %></button>
         <ul id="date-range-menu" role="menu" aria-labelledby="date-range">
           <li role="none">
-            <%= link_to "last 7 days", site_path(params[:site], from: 7.days.ago.to_date, to: Date.today), role: "menuitem", tabindex: "-1" %>
+            <%= link_to "last 7 days", url_for(params.merge(from: 7.days.ago.to_date, to: Date.today).to_unsafe_hash), role: "menuitem", tabindex: "-1" %>
           </li>
           <li role="none">
-            <%= link_to "last 30 days", site_path(params[:site], from: 30.days.ago.to_date, to: Date.today), role: "menuitem", tabindex: "-1" %>
+            <%= link_to "last 30 days", url_for(params.merge(from: 30.days.ago.to_date, to: Date.today).to_unsafe_hash), role: "menuitem", tabindex: "-1" %>
           </li>
           <li role="none">
             <button type="button" onclick="Ariato.Dialog.open('custom-date-range')"  tabindex="-1" class="is-link">
