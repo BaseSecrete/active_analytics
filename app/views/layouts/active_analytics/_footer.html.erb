@@ -12,9 +12,9 @@
       <label>From <%= text_field_tag :from, params[:from] %></label>
       <label>To <%= text_field_tag :to, params[:to] %></label>
     </div>
-    <footer>
-      <%= submit_tag "Change date range" %>
-      <button type="reset" onclick="Ariato.Dialog.close(this)">Close</button>
-    </footer>
   <% end %>
+  <footer>
+    <%= submit_tag "Change date range", form: "dateRangeForm" %>
+    <button type="reset" onclick="Ariato.Dialog.close(this)">Close</button>
+  </footer>
 </div>
