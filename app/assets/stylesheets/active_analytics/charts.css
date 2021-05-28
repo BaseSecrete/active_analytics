@@ -377,6 +377,7 @@ table.charts-css tfoot {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  min-width: 0;
 }
 
 .charts-css.column tbody tr th {

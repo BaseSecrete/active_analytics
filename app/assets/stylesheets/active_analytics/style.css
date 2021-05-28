@@ -99,6 +99,10 @@ section {
   width: calc(100% + 48px);
 }
 
+.card table.charts-css {
+  margin-bottom: -24px;
+}
+
 tr td:first-of-type {
   padding: 12px 0px 12px 24px;
 }
