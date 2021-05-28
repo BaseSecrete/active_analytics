@@ -8,7 +8,7 @@
       <tr>
         <td>
           <% if referrer.host %>
-            <img src="https://icons.duckduckgo.com/ip3/<%= referrer.host %>.ico" referrerpolicy="no-referrer" class="referer-favicon">
+            <%= site_icon referrer.host %>
             <%= link_to referrer.host, referrer_path(site: params[:site], referrer: referrer.host, from: params[:from], to: params[:to]) %>
           <% else %>
             <%= referrer.host %>

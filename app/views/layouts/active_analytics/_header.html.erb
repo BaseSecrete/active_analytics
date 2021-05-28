@@ -13,6 +13,14 @@
     <% if params[:site] %>
         <%= link_to params[:site], site_path(params[:site], from: params[:from], to: params[:to]) %>
         
+        <% if controller_name == "pages" %>
+          &nbsp;/&nbsp;<%= link_to "pages", pages_path(params[:site], from: params[:from], to: params[:to]) %>
+        <% end %>
+
+        <% if controller_name == "referrers" %>
+          &nbsp;/&nbsp;<%= link_to "referrers", referrers_path(params[:site], from: params[:from], to: params[:to]) %>
+        <% end %>
+
         <!--
         <ul id="site-menu" role="menu" aria-labelledby="site-menu-button">
           <li role="none">
@@ -33,7 +41,9 @@
       -->
 
       <div class="menubutton">
-        <button type="button" id="date-range" aria-haspopup="true" aria-controls="date-range-menu"><%= l params[:from].to_date, format: :long %> → <%= l params[:to].to_date, format: :long %></button>
+        <button type="button" id="date-range" aria-haspopup="true" aria-controls="date-range-menu">
+          <%= l params[:from].to_date, format: :long %> → <%= l params[:to].to_date, format: :long %>
+        </button>
         <ul id="date-range-menu" role="menu" aria-labelledby="date-range">
           <li role="none">
             <%= link_to "last 7 days", url_for(params.merge(from: 7.days.ago.to_date, to: Date.today).to_unsafe_hash), role: "menuitem", tabindex: "-1" %>
@@ -48,7 +58,6 @@
           </li>
         </ul>
       </div>
-  
     <% end %>
   </nav>
 </header>

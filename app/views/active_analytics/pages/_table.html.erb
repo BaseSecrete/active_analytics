@@ -12,13 +12,16 @@
             <% if page.path.present? %>
               <%= link_to page.path, page_path(site: page.host, page: page_to_params(page.path), from: params[:from], to: params[:to]) %>
             <% else %>
-              <img src="https://icons.duckduckgo.com/ip3/<%= page.host %>.ico" referrerpolicy="no-referrer" class="referer-favicon">
+              <%= site_icon page.host %>
               <%= link_to page.host, site_path(site: page.host, from: params[:from], to: params[:to]) %>
               <small>(page not provided <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy#strict-origin-when-cross-origin">?</a>)</small>
             <% end %>
           <% elsif page.host.present? && page.path.present? %>
-            <img src="https://icons.duckduckgo.com/ip3/<%= page.host %>.ico" referrerpolicy="no-referrer" class="referer-favicon">
-            <%= page.url %>
+            <%= link_to(referrer_path(site: params[:site], referrer: page.host, from: params[:from], to: params[:to])) { site_icon page.host } %>
+            <%= link_to page.url, referrer_path(site: params[:site], referrer: page.host, from: params[:from], to: params[:to]) %>
+          <% elsif page.host.present? %>
+            <%= site_icon page.host %>
+            <%= page.host %>
           <% else %>
             (None or direct)
           <% end %>
