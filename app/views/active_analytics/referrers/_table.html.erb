@@ -1,5 +1,7 @@
 <% if referrers.empty? %>
-  no data
+  <div class="is-empty">
+    <span>no data</span>
+  </div>
 <% else %>
   <table>
     <% for referrer in referrers %>
