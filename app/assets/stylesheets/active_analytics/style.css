@@ -37,8 +37,6 @@ section {
   margin-bottom: var(--space-4x);
 }
 
-table td.number { text-align: right; }
-
 .grid-auto {
   --col-min-width: calc(var(--space) * 38);
 }
@@ -73,6 +71,11 @@ tr td:first-of-type {
 
 tr td:last-of-type {
   padding: 12px 24px 12px 0;
+}
+
+td.number { 
+  text-align: right;
+  font-variant-numeric: tabular-nums;
 }
 
 .referer-favicon {
