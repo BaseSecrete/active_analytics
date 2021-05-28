@@ -127,27 +127,14 @@ table.charts-css tfoot {
           flex-direction: column;
 }
 
-.charts-css.column.show-labels tr.hide-label th,
-.charts-css.column.show-labels th.hide-label {
-  display: none;
-}
-
-.charts-css.column.labels-align-start tbody tr th {
-  -webkit-box-pack: var(--labels-align, flex-start);
-      -ms-flex-pack: var(--labels-align, flex-start);
-          justify-content: var(--labels-align, flex-start);
-}
-
-.charts-css.column.labels-align-end tbody tr th {
-  -webkit-box-pack: var(--labels-align, flex-end);
-      -ms-flex-pack: var(--labels-align, flex-end);
-          justify-content: var(--labels-align, flex-end);
-}
-
-.charts-css.column.labels-align-center tbody tr th {
-  -webkit-box-pack: var(--labels-align, center);
-      -ms-flex-pack: var(--labels-align, center);
-          justify-content: var(--labels-align, center);
+@media (max-width: 600px) {
+  .charts-css.column.show-labels {
+    --labels-size: 0;
+  }
+  
+  .charts-css.column.show-labels tbody tr th {
+    display: none;
+  }
 }
 
 /*
