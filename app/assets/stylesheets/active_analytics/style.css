@@ -1,17 +1,19 @@
 body {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 24px;
+  padding: 0;
+  width: 100%;
 }
 
 
-header nav {
+body > header nav {
   width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px;
   display: flex;
   align-items: center;
 }
 
-header nav  > *:last-child {
+header nav > *:last-child {
   margin-left: auto;
 }
 
@@ -43,8 +45,10 @@ header .is-link:hover {
 }
 
 main {
-  padding-top: var(--space-4x);
-  margin-bottom: var(--space-8x);
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
 section {
@@ -107,4 +111,10 @@ div.is-empty {
   height: calc(100% - 72px);
   width: 100%;
   color: rgba(var(--color-grey-300), 1);
+}
+
+body > footer {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px;
 }

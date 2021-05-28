@@ -33,8 +33,8 @@
       -->
 
       <div class="menubutton">
-        <button type="button" id="menubutton-example" aria-haspopup="true" aria-controls="menubutton-example-menu"><%= l params[:from].to_date, format: :long %> → <%= l params[:to].to_date, format: :long %></button>
-        <ul id="menubutton-example-menu" role="menu" aria-labelledby="menubutton-example">
+        <button type="button" id="date-range" aria-haspopup="true" aria-controls="date-range-menu"><%= l params[:from].to_date, format: :long %> → <%= l params[:to].to_date, format: :long %></button>
+        <ul id="date-range-menu" role="menu" aria-labelledby="date-range">
           <li role="none">
             <%= link_to "last 7 days", site_path(params[:site], from: 7.days.ago.to_date, to: Date.today), role: "menuitem", tabindex: "-1" %>
           </li>
@@ -42,23 +42,27 @@
             <%= link_to "last 30 days", site_path(params[:site], from: 30.days.ago.to_date, to: Date.today), role: "menuitem", tabindex: "-1" %>
           </li>
           <li role="none">
-            <button type="button" data-event="click->toggleDateRangeForm" class="is-link">
+            <button type="button" onclick="Ariato.Dialog.open('custom-date-range')"  tabindex="-1" class="is-link">
               Custom range
             </button>
           </li>
-
         </ul>
       </div>
   
     <% end %>
   </nav>
-
-  <%= form_tag url_for(params.except(:from, :to).to_unsafe_hash), method: "get", hidden: true, id: "dateRangeForm" do %>
-
-    <label>From <%= text_field_tag :from, params[:from] %></label>
-    <label>To <%= text_field_tag :to, params[:to] %></label>
-    <%= submit_tag "Change date range" %>
-
-  <% end %>
-
 </header>
+
+<div role="dialog" id="custom-date-range" aria-labelledby="custom-range-title" aria-modal="true">
+  <header id="custom-range-title">Custom range</header>
+  <%= form_tag url_for(params.except(:from, :to).to_unsafe_hash), method: "get", id: "dateRangeForm" do %>
+    <div role="group" clas="is-block">
+      <label>From <%= text_field_tag :from, params[:from] %></label>
+      <label>To <%= text_field_tag :to, params[:to] %></label>
+    </div>
+    <footer>
+      <%= submit_tag "Change date range" %>
+      <button type="reset" onclick="Ariato.Dialog.close(this)">Close</button>
+    </footer>
+  <% end %>
+</div>

@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Active analytics</title>
-  <meta name=viewport content="width=device-width, initial-scale=1">
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
+  <head>
+    <title>Active analytics</title>
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-  <%= stylesheet_link_tag "active_analytics/application", media: "all" %>
-  <%= javascript_include_tag "active_analytics/application" %>
-</head>
+    <%= stylesheet_link_tag "active_analytics/application", media: "all" %>
+    <%= javascript_include_tag "active_analytics/application" %>
+  </head>
 
-<body>
-  <%= render "/layouts/active_analytics/header" %>
-  <main aria-label="Content">
-    <%= yield %>
-  </main>
-  <%= render "/layouts/active_analytics/footer" %>
-</body>
+  <body>
+    <%= render "/layouts/active_analytics/header" %>
+    <main aria-label="Content">
+      <%= yield %>
+    </main>
+    <%= render "/layouts/active_analytics/footer" %>
+  </body>
 </html>
