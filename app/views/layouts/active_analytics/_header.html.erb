@@ -56,7 +56,7 @@
 <div role="dialog" id="custom-date-range" aria-labelledby="custom-range-title" aria-modal="true">
   <header id="custom-range-title">Custom range</header>
   <%= form_tag url_for(params.except(:from, :to).to_unsafe_hash), method: "get", id: "dateRangeForm" do %>
-    <div role="group" clas="is-block">
+    <div role="group" class="is-block">
       <label>From <%= text_field_tag :from, params[:from] %></label>
       <label>To <%= text_field_tag :to, params[:to] %></label>
     </div>
