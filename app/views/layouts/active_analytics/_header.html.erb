@@ -46,10 +46,16 @@
         </button>
         <ul id="date-range-menu" role="menu" aria-labelledby="date-range">
           <li role="none">
-            <%= link_to "last 7 days", url_for(params.merge(from: 7.days.ago.to_date, to: Date.today).to_unsafe_hash), role: "menuitem", tabindex: "-1" %>
+            <%= link_to "Today", url_for(params.merge(from: Date.today, to: Date.today).to_unsafe_hash), role: "menuitem", tabindex: "-1" %>
           </li>
           <li role="none">
-            <%= link_to "last 30 days", url_for(params.merge(from: 30.days.ago.to_date, to: Date.today).to_unsafe_hash), role: "menuitem", tabindex: "-1" %>
+            <%= link_to "Yesterday", url_for(params.merge(from: Date.yesterday, to: Date.yesterday).to_unsafe_hash), role: "menuitem", tabindex: "-1" %>
+          </li>
+          <li role="none">
+            <%= link_to "Last 7 days", url_for(params.merge(from: 7.days.ago.to_date, to: Date.today).to_unsafe_hash), role: "menuitem", tabindex: "-1" %>
+          </li>
+          <li role="none">
+            <%= link_to "Last 30 days", url_for(params.merge(from: 30.days.ago.to_date, to: Date.today).to_unsafe_hash), role: "menuitem", tabindex: "-1" %>
           </li>
           <li role="none">
             <button type="button" onclick="Ariato.Dialog.open('custom-date-range')"  tabindex="-1" class="is-link">
