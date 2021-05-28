@@ -44,6 +44,10 @@ module ActiveAnalytics
         @max_total ||= bars.map(&:value).max
       end
 
+      def total
+        @bars.reduce(0) { |sum, bar| sum += bar.value }
+      end
+
       class Bar
         attr_reader :label, :value, :histogram
 

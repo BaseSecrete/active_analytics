@@ -3,7 +3,7 @@
 </section>
 
 <section class="card">
-  <h3>Views</h3>
+  <h3>Total views : <%= format_view_count @histogram.total %></h3>
   <%= render "/active_analytics/sites/histogram", histogram: @histogram %>
 </section>
 <ul class="grid-auto">

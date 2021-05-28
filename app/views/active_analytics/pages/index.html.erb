@@ -1,5 +1,5 @@
 <section class="card">
-  <h3>Views per day</h3>
+  <h3>Total views : <%= format_view_count @histogram.total %></h3>
   <%= render "/active_analytics/sites/histogram", histogram: @histogram %>
 </section>
 
