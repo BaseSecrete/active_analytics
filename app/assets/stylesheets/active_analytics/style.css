@@ -27,6 +27,20 @@ header .logo svg {
   stroke-width: 1;
 }
 
+header .is-link {
+  text-transform: none;
+  text-decoration: none;
+  font-size: 1rem;
+  letter-spacing: 0;
+  font-weight: 400;
+  padding: 0 16px;
+  margin: 0;
+  min-height: 24px;
+}
+
+header .is-link:hover {
+  background: rgba(var(--color-grey-50), 1);
+}
 
 main {
   padding-top: var(--space-4x);

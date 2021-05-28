@@ -26,10 +26,30 @@
           </li>
         </ul>
       </div>
-      -->
+      
       <button type="button" data-event="click->toggleDateRangeForm" class="is-pull-right">
-        <%= l params[:from].to_date, format: :long %> → <%= l params[:to].to_date, format: :long %>
+        <%#= l params[:from].to_date, format: :long %> → <%= l params[:to].to_date, format: :long %>
       </button>
+      -->
+
+      <div class="menubutton">
+        <button type="button" id="menubutton-example" aria-haspopup="true" aria-controls="menubutton-example-menu"><%= l params[:from].to_date, format: :long %> → <%= l params[:to].to_date, format: :long %></button>
+        <ul id="menubutton-example-menu" role="menu" aria-labelledby="menubutton-example">
+          <li role="none">
+            <%= link_to "last 7 days", site_path(params[:site], from: 7.days.ago.to_date, to: Date.today), role: "menuitem", tabindex: "-1" %>
+          </li>
+          <li role="none">
+            <%= link_to "last 30 days", site_path(params[:site], from: 30.days.ago.to_date, to: Date.today), role: "menuitem", tabindex: "-1" %>
+          </li>
+          <li role="none">
+            <button type="button" data-event="click->toggleDateRangeForm" class="is-link">
+              Custom range
+            </button>
+          </li>
+
+        </ul>
+      </div>
+  
     <% end %>
   </nav>
 
