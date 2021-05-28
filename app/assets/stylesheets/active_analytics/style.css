@@ -1,5 +1,6 @@
 body {
   padding: 0;
+  margin: 0;
   width: 100%;
 }
 
@@ -13,7 +14,7 @@ body > header nav {
   align-items: center;
 }
 
-header nav > *:last-child {
+header nav .menubutton {
   margin-left: auto;
 }
 
