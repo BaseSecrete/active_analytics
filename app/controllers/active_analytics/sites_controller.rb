@@ -11,7 +11,7 @@ module ActiveAnalytics
 
     def show
       scope = current_views_per_days
-      @histogram = ViewsPerDay::Histogram.new(scope.order_by_date.group_by_date)
+      @histogram = ViewsPerDay::Histogram.new(scope.order_by_date.group_by_date, params[:from], params[:to])
       @referrers = scope.top.group_by_referrer_site
       @pages = scope.top.group_by_page
     end

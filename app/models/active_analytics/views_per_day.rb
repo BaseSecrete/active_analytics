@@ -34,10 +34,22 @@ module ActiveAnalytics
     end
 
     class Histogram
-      attr_reader :bars
+      attr_reader :bars, :from_date, :to_date
 
-      def initialize(scope)
+      def initialize(scope, from_date, to_date)
         @bars = scope.map { |day| Bar.new(day.day, day.total, self) }
+        fill_missing_days(@bars, Date.parse(from_date.to_s), Date.parse(to_date.to_s))
+      end
+
+      def fill_missing_days(bars, from, to)
+        i = 0
+        while (day = from + i) <= to
+          if !@bars[i] || @bars[i].label != day
+            @bars.insert(i, Bar.new(day, 0, self))
+          end
+          i += 1
+        end
+        @bars
       end
 
       def max_value

@@ -1,0 +1,5 @@
+rorvswild:
+  site: rorvswild.com
+  page: /
+  date: <%= Date.today %>
+  total: 1
