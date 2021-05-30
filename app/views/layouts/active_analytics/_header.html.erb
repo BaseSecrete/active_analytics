@@ -42,7 +42,8 @@
 
       <div class="menubutton">
         <button type="button" id="date-range" aria-haspopup="true" aria-controls="date-range-menu">
-          <%= l params[:from].to_date, format: :long %> → <%= l params[:to].to_date, format: :long %>
+          <%= l params[:from].to_date, format: :long %>
+          <% if params[:to].to_date !=  params[:from].to_date %> → <%= l params[:to].to_date, format: :long %><% end%>
         </button>
         <ul id="date-range-menu" role="menu" aria-labelledby="date-range">
           <li role="none">
