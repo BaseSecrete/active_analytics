@@ -1,13 +1,15 @@
-<table class="charts-css column show-primary-axis show-5-secondary-axes hide-data <%= "show-labels" if histogram.bars.count < 31 %>" style="height: calc(var(--space-2x) * 8);">
-  <tbody>
-    <% for bar in histogram.bars %>
-      <tr>
-        <th scope="row"><%= bar.label.day %></td>
-          <td style="--size: <%= bar.height %>; --color: rgba(var(--color-grey-100), 1);">
-          <span class="data"><%= bar.value.to_i %></span>
-          <span class="tooltip"><small class="tooltip-date"><%= l bar.label, format: :long%></small><br/><%= format_view_count bar.value %> views</span>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% if histogram.bars.count > 1 %>
+  <table class="charts-css column show-primary-axis show-5-secondary-axes hide-data <%= "show-labels" if histogram.bars.count < 32 %>" style="height: calc(var(--space-2x) * 8);">
+    <tbody>
+      <% for bar in histogram.bars %>
+        <tr>
+          <th scope="row"><%= bar.label.day %></td>
+            <td style="--size: <%= bar.height %>; --color: rgba(var(--color-grey-100), 1);">
+            <span class="data"><%= bar.value.to_i %></span>
+            <span class="tooltip"><small class="tooltip-date"><%= l bar.label, format: :long%></small><br/><%= format_view_count bar.value %> views</span>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
