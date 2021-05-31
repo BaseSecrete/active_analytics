@@ -50,6 +50,7 @@ header .is-link {
   padding: 0 16px;
   margin: 0;
   min-height: 24px;
+  color: rgba(var(--color-grey-700), 1);
 }
 
 header .is-link:hover {
