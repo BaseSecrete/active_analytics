@@ -309,8 +309,8 @@ table.charts-css tfoot {
   opacity: 0;
   -webkit-transition: opacity .3s;
   transition: opacity .3s;
-  background-color: rgba(var(--color-grey-500));
-  color: rgba(var(--color-grey-00));
+  background-color: rgba(var(--color-grey-500), 1);
+  color: rgba(var(--color-grey-00), 1);
   text-align: center;
   font-size: .9rem;
 }
@@ -323,7 +323,7 @@ table.charts-css tfoot {
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: rgba(var(--color-grey-500)) transparent transparent;
+  border-color: rgba(var(--color-grey-500), 1) transparent transparent;
 }
 
 .charts-css tr:hover .tooltip {
