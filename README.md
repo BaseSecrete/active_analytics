@@ -9,8 +9,7 @@ Simple trafic analytics for the win of privacy.
 * NO third parties
 * NO bullshit
 
-**ActiveAnalytics** is a Rails engine directly mountable in your Ruby on Rails application. It doesn't reveal anything about specific users. It cannot be blocked by adblockers or other privacy protecting extensions (and doesn't need to).
-
+**ActiveAnalytics** is a Rails engine directly mountable in your Ruby on Rails application. It doesn't reveal anything about specific visitors. It cannot be blocked by adblockers or other privacy protecting extensions (and doesn't need to).
 
 **ActiveAnalytics** lets you know about:
 
@@ -18,6 +17,7 @@ Simple trafic analytics for the win of privacy.
 * **Page views**: What are the pages that are the most viewed in your application.
 * **Next/previous page**: What are the entry and exit pages for a given page of your application.
 
+<img width="200px" src="app/assets/images/active_analytics_screenshot.png" alt="active analytics logo" style="margin: 0 0 72px 48px;" />
 
 ## Installation
 Add this line to your application's Gemfile:
