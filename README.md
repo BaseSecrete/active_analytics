@@ -1,8 +1,23 @@
 # ActiveAnalytics
 
-Trafic analytics for the win of privacy. To achieve this goal there is NO cookies, NO JavaScript, NO third parties and NO bullshit.
+<img align="right" width="200px" src="app/assets/images/active_analytics.png" alt="active analytics logo" style="margin: 0 0 72px 48px;" />
 
-ActiveAnalytics is a Rails engine directly mountable in your Rails application.
+Simple trafic analytics for the win of privacy.
+
+* NO cookies
+* NO JavaScript
+* NO third parties
+* NO bullshit
+
+**ActiveAnalytics** is a Rails engine directly mountable in your Ruby on Rails application. It doesn't reveal anything about specific users. It cannot be blocked by adblockers or other privacy protecting extensions (and doesn't need to).
+
+
+**ActiveAnalytics** lets you know about:
+
+* **Sources**: What are the pages and domains that bring some trafic.
+* **Page views**: What are the pages that are the most viewed in your application.
+* **Next/previous page**: What are the entry and exit pages for a given page of your application.
+
 
 ## Installation
 Add this line to your application's Gemfile:
@@ -51,3 +66,7 @@ end
 
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+Made by [Base Secrète](https://basesecrete.com).
+
+Rails developer? Check out [RoRvsWild](https://rorvswild.com), our Ruby on Rails application monitoring tool.
