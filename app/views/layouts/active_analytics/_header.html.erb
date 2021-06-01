@@ -11,34 +11,15 @@
     <% end %>
 
     <% if params[:site] %>
-        <%= link_to params[:site], site_path(params[:site], from: params[:from], to: params[:to]) %>
-        
-        <% if controller_name == "pages" %>
-          &nbsp;/&nbsp;<%= link_to "pages", pages_path(params[:site], from: params[:from], to: params[:to]) %>
-        <% end %>
-
-        <% if controller_name == "referrers" %>
-          &nbsp;/&nbsp;<%= link_to "referrers", referrers_path(params[:site], from: params[:from], to: params[:to]) %>
-        <% end %>
-
-        <!--
-        <ul id="site-menu" role="menu" aria-labelledby="site-menu-button">
-          <li role="none">
-            <%= link_to "Site", site_path(params[:site], from: params[:from], to: params[:to]), role: "menuitem", tabindex: -1 %>
-          </li>
-          <li role="none">
-            <%= link_to "Pages", pages_path(from: params[:from], to: params[:to]), role: "menuitem", tabindex: -1 %>
-          </li>
-          <li role="none">
-            <%= link_to "Referrers", referrers_path(from: params[:from], to: params[:to]), role: "menuitem", tabindex: -1 %>
-          </li>
-        </ul>
-      </div>
+      <%= link_to params[:site], site_path(params[:site], from: params[:from], to: params[:to]) %>
       
-      <button type="button" data-event="click->toggleDateRangeForm" class="is-pull-right">
-        <%#= l params[:from].to_date, format: :long %> → <%= l params[:to].to_date, format: :long %>
-      </button>
-      -->
+      <% if controller_name == "pages" %>
+        &nbsp;/&nbsp;<%= link_to "pages", pages_path(params[:site], from: params[:from], to: params[:to]) %>
+      <% end %>
+
+      <% if controller_name == "referrers" %>
+        &nbsp;/&nbsp;<%= link_to "referrers", referrers_path(params[:site], from: params[:from], to: params[:to]) %>
+      <% end %>
 
       <div class="menubutton">
         <button type="button" id="date-range" aria-haspopup="true" aria-controls="date-range-menu">

@@ -4,7 +4,6 @@ body {
   width: 100%;
 }
 
-
 body > header nav {
   width: 100%;
   max-width: 1280px;
@@ -13,20 +12,11 @@ body > header nav {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  min-height: 88px;
 }
 
 header nav .menubutton {
   margin-left: auto;
-}
-
-@media (max-width: 480px) {
-  header nav .menubutton {
-    margin-top: 24px;
-  }
-
-  [role="dialog"] {
-    min-width: 280px;
-  }
 }
 
 header .logo {
@@ -127,6 +117,7 @@ td.number {
   display: inline-block;
   position: relative;
   top: 3px;
+  margin-right: 4px;
 }
 
 div.is-empty {
@@ -140,6 +131,31 @@ div.is-empty {
 
 body > footer {
   max-width: 1280px;
-  margin: 0 auto;
+  margin: 48px auto 0;
   padding: 24px;
+}
+
+body > footer ul {
+  margin: 0;
+  list-style-type: none;
+  padding: 0;
+}
+
+body > footer .card {
+  margin: 0;
+  background: rgba(var(--color-grey-50), 1);
+}
+body > footer .card p {
+  padding: 0 0 2px;
+  color: rgba(var(--color-grey-400), 1);
+}
+
+@media (max-width: 480px) {
+  header nav .menubutton {
+    margin-top: 24px;
+  }
+
+  [role="dialog"] {
+    min-width: 280px;
+  }
 }

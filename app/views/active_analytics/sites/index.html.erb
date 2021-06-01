@@ -1,11 +1,12 @@
 <h2>Site views in the last 30 days</h2>
-
-<table>
-  </tr>
-  <% for site in @sites %>
-    <tr>
-      <td><%= link_to site.host, site_path(site: site.host) %></td>
-      <td class="number"><%= format_view_count site.total %></td>
+<div class="card">
+  <table>
     </tr>
-  <% end %>
-</table>
+    <% for site in @sites %>
+      <tr>
+        <td><%= link_to site.host, site_path(site: site.host) %></td>
+        <td class="number"><%= format_view_count site.total %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
