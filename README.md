@@ -17,7 +17,7 @@ Simple trafic analytics for the win of privacy.
 * **Page views**: What are the pages that are the most viewed in your application.
 * **Next/previous page**: What are the entry and exit pages for a given page of your application.
 
-<img width="200px" src="app/assets/images/active_analytics_screenshot.png" alt="active analytics logo" style="margin: 0 0 72px 48px;" />
+<img src="app/assets/images/active_analytics_screenshot.png" alt="active analytics logo" style="max-width: 100%; margin: 24px 0;" />
 
 ## Installation
 Add this line to your application's Gemfile:
