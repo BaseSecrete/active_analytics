@@ -2,18 +2,18 @@
 
 <img align="right" width="200px" src="app/assets/images/active_analytics.png" alt="active analytics logo" style="margin: 0 0 72px 48px;" />
 
-Simple trafic analytics for the win of privacy.
+Simple traffic analytics for the win of privacy.
 
 * NO cookies
 * NO JavaScript
 * NO third parties
 * NO bullshit
 
-**ActiveAnalytics** is a Rails engine directly mountable in your Ruby on Rails application. It doesn't reveal anything about specific visitors. It cannot be blocked by adblockers or other privacy protecting extensions (and doesn't need to).
+**ActiveAnalytics** is a Rails engine directly mountable in your Ruby on Rails application. It doesn't reveal anything about specific visitors. It cannot be blocked by adblockers or other privacy-protecting extensions (and doesn't need to).
 
 **ActiveAnalytics** lets you know about:
 
-* **Sources**: What are the pages and domains that bring some trafic.
+* **Sources**: What are the pages and domains that bring some traffic.
 * **Page views**: What are the pages that are the most viewed in your application.
 * **Next/previous page**: What are the entry and exit pages for a given page of your application.
 
@@ -45,7 +45,7 @@ end
 
 This is a basic `before_action`. In case you don't want to record all page views, simply define a `skip_before_action :record_page_view` in the relevant controller.
 
-Finally just add the route to ActiveAnylytics dashboard at the desired endpoint:
+Finally, just add the route to ActiveAnalytics dashboard at the desired endpoint:
 ```ruby
 mount ActiveAnalytics::Engine, at: "analytics"  # http://localhost:3000/analytics
 ```
@@ -65,7 +65,7 @@ end
 ```
 
 ## License
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+The gem is available as open-source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
 Made by [Base Secrète](https://basesecrete.com).
 
