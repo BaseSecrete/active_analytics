@@ -3,11 +3,11 @@ require_relative "lib/active_analytics/version"
 Gem::Specification.new do |spec|
   spec.name        = "active_analytics"
   spec.version     = ActiveAnalytics::VERSION
-  spec.authors     = ["Alexis Bernard"]
-  spec.email       = ["alexis@basesecrete.com"]
+  spec.authors     = ["Alexis Bernard", "Antoine Marguerie"]
+  spec.email       = ["alexis@basesecrete.com", "antoine@basesecrete.com"]
   spec.homepage    = "https://github.com/BaseSecrete/active_analytics"
-  spec.summary     = "Trafic analytics for the win of privacy"
-  spec.description = "NO cookies, NO JavaScript, NO third parties and NO bullshit"
+  spec.summary     = "First-party, privacy-focused traffic analytics for Ruby on Rails applications"
+  spec.description = "NO cookies, NO JavaScript, NO third parties and NO bullshit."
   spec.license     = "MIT"
 
   spec.metadata["allowed_push_host"] = "https://rubygems.org"
