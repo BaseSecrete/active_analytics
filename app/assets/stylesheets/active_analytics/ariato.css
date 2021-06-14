@@ -158,9 +158,6 @@ body {
 
 :root {
   --font-sans:  system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; 
-  --font-serif: Athelas, Cambria, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
-  --font-mono: SF Mono, Menlo, Consolas, DejaVu Sans Mono, monospace;
-
   --base-font-size: var(--space-2x);
 
   /****************/ 
@@ -184,9 +181,6 @@ body {
   --font-size-90: calc(var(--base-font-size) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio)); /* +5 */
   --font-size-100: calc(var(--base-font-size) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio)); /* +6 */
   --font-size-110: calc(var(--base-font-size) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio)); /* +7 */
-  --font-size-120: calc(var(--base-font-size) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio)); /* +8 */
-  --font-size-130: calc(var(--base-font-size) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio)); /* +9 */
-  --font-size-140: calc(var(--base-font-size) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio) * var(--ratio)); /* +10 */
 }
 
 html,
@@ -207,11 +201,6 @@ body {
   --box-shadow-s: 
     0 1px 1px 0 rgba(var(--color-black), 0.05),
     0 1px 2px 0 rgba(var(--color-black), 0.05);
-  --box-shadow-m: 
-    0 1px 1px 0 rgba(var(--color-black), 0.05),
-    0 1px 2px 0 rgba(var(--color-black), 0.05),
-    0 2px 4px -1px rgba(var(--color-black), 0.05),
-    0 4px 8px -2px rgba(var(--color-black), 0.05);
   --box-shadow-l: 
     0 0px 2px 0 rgba(var(--color-black), 0.05),
     0 1px 2px 0 rgba(var(--color-black), 0.05),
@@ -224,17 +213,9 @@ body {
   --box-inset-shadow-s: 0 1px 1px 0 rgba(var(--color-black), 0.05) inset;  
   --box-inset-shadow-m: 0 1px 1px 0px rgba(var(--color-black), 0.05) inset,
       0 2px 2px 1px rgba(var(--color-black), 0.05) inset;
-  --box-inset-shadow-l: 0 1px 1px 0px rgba(var(--color-black), 0.05) inset,
-        0 2px 2px 1px rgba(var(--color-black), 0.05) inset,
-      0 2px 8px 2px rgba(var(--color-black), 0.05) inset;
       
 /* text shadow */
   --text-shadow-s: 0 1px 1px rgba(var(--color-black), 0.05);
-  --text-shadow-m: 0 1px 1px rgba(var(--color-black), 0.05),
-      0 2px 2px rgba(var(--color-black), 0.05);
-  --text-shadow-l: 0 1px 1px rgba(var(--color-black), 0.05),
-      0 2px 2px rgba(var(--color-black), 0.05),
-      0 4px 4px rgba(var(--color-black), 0.05);
 }
 /* design_tokens/shape.css */
 
@@ -242,10 +223,8 @@ body {
   /* border radius */
   --border-radius-s: calc(var(--space) * 0.25);
   --border-radius-m: var(--space-1-2);
-  --border-radius-l: calc(var(--space) * 1);
-
-  /* aspect ratio */
 }
+
 /* design_tokens/space.css */
 
 *,
@@ -266,17 +245,6 @@ body {
   --space-5x: calc(var(--space) * 5);
   --space-6x: calc(var(--space) * 6);
   --space-7x: calc(var(--space) * 7);
-  --space-8x: calc(var(--space) * 8);
-  --space-9x: calc(var(--space) * 9);
-  --space-10x: calc(var(--space) * 10);
-  --space-11x: calc(var(--space) * 11);
-  --space-12x: calc(var(--space) * 12);
-  --space-13x: calc(var(--space) * 13);
-  --space-14x: calc(var(--space) * 14);
-}
-
-.is-flowing > * + * {
-  margin-top: var(--space-3x);
 }
 
 /* elements */
@@ -357,28 +325,7 @@ h3,
   font-weight: 700;
   letter-spacing: 0;
   line-height: var(--space-3x);
-  text-transform: none;
-  
-}
-
-h4,
-.is-h4 {
-  margin: 0;
-  padding: calc(var(--space) - 1px) 0 calc(var(--space-2x) + 1px);
-
-  /* type */
-  color: rgba(var(--color-grey-700), 1);
-  font-size: var(--font-size-40);
-  letter-spacing: 0.1rem;
-  line-height: var(--space-3x);
-  text-transform: uppercase;
-}
-
-h4 + p { margin-top: -24px; }
-
-strong {
-  color: rgba(var(--color-grey-700), 1);
-  font-weight: inherit;
+  text-transform: none; 
 }
 
 small {
@@ -472,15 +419,6 @@ input[type="reset"]:focus,
   z-index: 1;
 }
 
-button:focus:focus:not(:focus-visible),
-input[type="submit"]:focus:focus:not(:focus-visible),
-input[type="button"]:focus:focus:not(:focus-visible),
-input[type="reset"]:focus:focus:not(:focus-visible),
-[role="button"]:focus:focus:not(:focus-visible),
-:any-link[role="button"]:focus:focus:not(:focus-visible) { 
-  outline: none;
-}
-
 /* button elements */
 button * + *,
 button[type="reset"] * + *,
@@ -493,23 +431,6 @@ input[type="reset"] * + *,
 }
 
 /* MODIFIERS */
-
-/* ARIA STATES */
-
-  /* toggle */
-
-button[aria-pressed="true"],
-button[type="reset"][aria-pressed="true"],
-input[type="submit"][aria-pressed="true"],
-input[type="button"][aria-pressed="true"],
-input[type="reset"][aria-pressed="true"],
-[role="button"][aria-pressed="true"],
-:any-link[role="button"][aria-pressed="true"] {
-  background: rgba(var(--color-grey-100), 1);
-  color: rgba(var(--color-blue-600), 1);
-  box-shadow: 0 0 0 1px rgba(var(--color-grey-200), 1) inset,
-  var(--box-inset-shadow-m);
-}
 
 /* menubutton */
 button[aria-expanded="true"],
@@ -616,17 +537,6 @@ input[type="reset"].is-link:focus,
   color: rgba(var(--color-grey-700), 1);
 }
 
-@media screen and (-ms-high-contrast: active) {
-  button,
-  input[type="submit"],
-  input[type="button"],
-  input[type="reset"],
-  [role="button"],
-  :any-link[role="button"] {
-    border: 2px solid currentcolor;
-  }
-}
-
 /* FORMS */
 form {
   overflow: visible;
@@ -662,10 +572,7 @@ label small {
   letter-spacing: 0;
 }
 
-input,
-select,
-textarea,
-output {
+input {
   display: block;
   width: 100%;
   background-color: rgba(var(--color-grey-00), 1);
@@ -686,10 +593,7 @@ output {
   line-height: var(--space-3x);
 }
 
-input:focus,
-select:focus,
-textarea:focus,
-output:focus {
+input:focus{
   outline: 0 none;
   border-color: rgba(var(--color-blue-400), 1);
   box-shadow: 
@@ -697,17 +601,11 @@ output:focus {
     var(--box-shadow-s);
 }
 
-input:focus:not(:focus-visible),
-select:focus:not(:focus-visible),
-textarea:focus:not(:focus-visible),
-output:focus:not(:focus-visible) { 
+input:focus:not(:focus-visible) { 
   outline: none;
 }
 
-label + input,
-label + textarea,
-label + select,
-label + output {
+label + input {
   margin-top: 0;
 }
 
@@ -764,17 +662,12 @@ a:any-link[target="_blank"]::after {
   border-right: 2px solid;
   border-top: 2px solid;
   top: calc(50% - 5px);
-  }
-
+}
 
 table {
   width: 100%;
   padding: 0;
   border-spacing: 0;
-}
-
-thead {
-  box-shadow: 0 -1px 0 0 rgba(var(--color-grey-50), 1) inset;
 }
 
 th {
@@ -799,11 +692,6 @@ tbody tr:hover {
 td {
   color: rgba(var(--color-grey-500), 1);
   padding: 12px 24px;
-}
-
-th.is-right,
-td.is-right {
-  text-align: right;
 }
 
 /*  components   */
@@ -835,8 +723,6 @@ td.is-right {
 }
 
 /* components/dialog.css */
-
-/* Backdrop */
 
 .dialog-backdrop {
   height: 100vh;
@@ -1176,18 +1062,6 @@ a[role="menuitem"]:not(.button)[aria-current="true"] {
 .menubutton > [role="menu"] [role="menuitem"]:focus {
   background: rgba(var(--color-grey-50), 1);
   color: rgba(var(--color-grey-700), 1);
-}
-
-/* position modifiers */
-
-.menubutton > [role="menu"].is-right {
-  left: auto;
-  right: 0;
-}
-
-.menubutton > [role="menu"].is-right:before {
-  right: 24px;
-  left: auto
 }
 
 *[hidden=true] { 
