@@ -53,16 +53,31 @@ mount ActiveAnalytics::Engine, at: "analytics"  # http://localhost:3000/analytic
 ```
 
 ## Authentication and permissions
-ActiveAnalytics cannot guess how you handle user authentication, because it is different for all Rails applications. So you have to inject your own mechanism into `ActiveAnalytics::ApplicationController`. Create a file in `config/initializers/active_analytics.rb`:
+
+ActiveAnalytics cannot guess how you handle user authentication, because it is different for all Rails applications. So you have to monkey patch `ActiveAnalytics::ApplicationController` in order to inject your own mechanism. Create a file in `config/initializers/active_analytics.rb` to add a before action :
 
 ```ruby
+# config/initializers/active_analytics.rb
 require_dependency "active_analytics/application_controller"
 
 module ActiveAnalytics
   class ApplicationController
-    # include Currentuser           # This is an example that you have to change by
-    # before_action :require_admin  # your own modules and methods
+    before_action :require_admin
+
+    def require_admin
+      # This example supposes there are current_user and User#admin? methods
+      raise ActionController::RoutingError.new("Not found") unless current_user.try(:admin?)
+    end
   end
+end
+```
+
+If you have Devise, you can check the permission directly from routes.rb :
+
+```ruby
+# config/routes.rb
+authenticate :user, -> (u) { u.admin? } do # Supposing there is a User#admin? method
+  mount ActiveAnalytics::Engine, at: "analytics" # http://localhost:3000/analytics
 end
 ```
 
