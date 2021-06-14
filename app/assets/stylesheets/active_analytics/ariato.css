@@ -3,8 +3,6 @@
 /*  https://github.com/BaseSecrete/ariato  */
 /*******************************************/
 
-/* design_tokens/color.css */
-
 :root,
 .theme-light {
   --color-blue-100: 219,225,241;
@@ -106,20 +104,11 @@ body {
 }
 
 /* design_tokens/font.css */
-
 :root {
   --font-sans:  system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; 
   --base-font-size: var(--space-2x);
-
-  /****************/ 
-  /* font-weight */
-
   --font-weight-400: 400;
   --font-weight-700: 700;
-
-  /****************/
-  /* modular scale */ 
-  
   --ratio: 1.2;
   --font-size-30: calc(var(--base-font-size) / var(--ratio) / var(--ratio)); /* -2 */
   --font-size-40: calc(var(--base-font-size) / var(--ratio)); /* -1 */
@@ -144,9 +133,7 @@ body {
 }
 
 /* design_tokens/shadow.css */
-
 :root {
-/* box-shadow */
   --box-shadow-s: 
     0 1px 1px 0 rgba(var(--color-black), 0.05),
     0 1px 2px 0 rgba(var(--color-black), 0.05);
@@ -157,25 +144,19 @@ body {
     0 4px 8px -2px rgba(var(--color-black), 0.05),
     0 8px 16px -4px rgba(var(--color-black), 0.05),
     0 16px 32px -8px rgba(var(--color-black), 0.05);
-
-/* inset box shadow */
   --box-inset-shadow-s: 0 1px 1px 0 rgba(var(--color-black), 0.05) inset;  
   --box-inset-shadow-m: 0 1px 1px 0px rgba(var(--color-black), 0.05) inset,
       0 2px 2px 1px rgba(var(--color-black), 0.05) inset;
-      
-/* text shadow */
   --text-shadow-s: 0 1px 1px rgba(var(--color-black), 0.05);
 }
-/* design_tokens/shape.css */
 
+/* design_tokens/shape.css */
 :root {
-  /* border radius */
   --border-radius-s: calc(var(--space) * 0.25);
   --border-radius-m: var(--space-1-2);
 }
 
 /* design_tokens/space.css */
-
 *,
 *::before,
 *::after {
@@ -184,10 +165,8 @@ body {
 
 :root {
   --space: 0.5rem;
-  /* divided */
   --space-1-4: calc(var(--space) / 4);
   --space-1-2: calc(var(--space) / 2);
-  /* multiple */
   --space-2x: calc(var(--space) * 2);
   --space-3x: calc(var(--space) * 3);
   --space-4x: calc(var(--space) * 4);
@@ -198,7 +177,7 @@ body {
 
 /* elements */
 
-/* text selection */
+/* text */
 ::-moz-selection {
   background: rgba(var(--color-blue-100), 1);
   text-shadow: none;
@@ -208,8 +187,6 @@ body {
   background: rgba(var(--color-blue-100), 1);
   text-shadow: none;
 }
-
-/* paragraphs */
 
 p {
   margin: 0;
@@ -225,8 +202,6 @@ p.is-large {
 p + :not(p) {
   margin-top: var(--space-3x);
 }
-
-/* headings */
 
 h1,
 .is-h1 {
@@ -287,7 +262,6 @@ hr {
 }
 
 /**** BUTTONS *****/
-
 button,
 input[type="submit"],
 input[type="button"],
@@ -302,21 +276,15 @@ input[type="reset"],
   justify-content: center;
   align-self: start;
   transition: 0.2s all ease-in-out;
-  
-  /*  shape */
   background-color: transparent;
   min-height: var(--space-5x);
   margin: 0;
   padding: var(--space) calc(var(--space) * 2);
-
-  /*  border */
   border: none;
-  border-radius: var(--border-radius-s, 0); /* defined in design_tokens/shape.scss */
+  border-radius: var(--border-radius-s, 0);
   box-shadow: 0 0 0 1px rgba(var(--color-grey-200), 1) inset,
     var(--box-shadow-s);
   outline: 0;
-
-  /* text */
   color: rgba(var(--color-grey-700), 1);
   font: inherit;
   font-family: inherit;
@@ -359,20 +327,6 @@ input[type="reset"]:focus,
   z-index: 1;
 }
 
-/* button elements */
-button * + *,
-button[type="reset"] * + *,
-input[type="submit"] * + *,
-input[type="button"] * + *,
-input[type="reset"] * + *,
-[role="button"] * + *,
-:any-link[role="button"] * + * {
-  margin: 0 0 0 var(--space);
-}
-
-/* MODIFIERS */
-
-/* menubutton */
 button[aria-expanded="true"],
 button[type="reset"][aria-expanded="true"],
 input[type="submit"][aria-expanded="true"],
@@ -385,8 +339,6 @@ input[type="reset"][aria-expanded="true"],
   box-shadow: 0 0 0 1px rgba(var(--color-grey-200), 1) inset,
     var(--box-inset-shadow-m);
 }
-
-/* reset style */
 
 button[type="reset"],
 input[type="reset"],
@@ -432,7 +384,6 @@ input[type="button"].is-reset:focus,
   outline: 2px solid rgba(var(--color-red-200), 1);
 }
 
-/* link style */
 button.is-link,
 button[type="reset"].is-link,
 input[type="submit"].is-link,
@@ -476,6 +427,10 @@ input[type="reset"].is-link:focus,
   color: rgba(var(--color-grey-700), 1);
 }
 
+svg {
+  vertical-align: middle;
+}
+
 /* FORMS */
 form {
   overflow: visible;
@@ -488,8 +443,6 @@ form > * + * {
 form *[hidden] {
   margin: 0;
 }
-
-/* FIELDSET */
 
 label {
   display: block;
@@ -506,11 +459,6 @@ label {
   -ms-user-select: none;
 }
 
-label small {
-  text-transform: none;
-  letter-spacing: 0;
-}
-
 input {
   display: block;
   width: 100%;
@@ -518,14 +466,10 @@ input {
   min-height: var(--space-5x);
   padding: calc(var(--space) - 1px) calc(var(--space-2x) - 1px);
   margin: 0;
-  
-  /* border */
   border: 1px solid rgba(var(--color-grey-50), 1);
   border-radius: var(--border-radius-s, 0);
   outline: 0 none;
   box-shadow: var(--box-inset-shadow-s);
-
-  /* text */
   color: rgba(var(--color-grey-600), 1);
   font-family: inherit;
   font-size: var(--base-font-size);
@@ -550,10 +494,6 @@ label + input {
 
 ::placeholder {
   color: rgba(var(--color-grey-300), 1);
-}
-
-svg {
-  vertical-align: middle;
 }
 
 a:any-link {
@@ -632,8 +572,6 @@ td {
   color: rgba(var(--color-grey-500), 1);
   padding: 12px 24px;
 }
-
-/*  components   */
 
 /* components/breadcrumb.css */
 
