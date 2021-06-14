@@ -7,10 +7,6 @@
 
 :root,
 .theme-light {
-  --color-blue-00: 255,255,255;
-  --color-blue-20: 249,250,253;
-  --color-blue-35: 245,246,251;
-  --color-blue-50: 239,241,249;
   --color-blue-100: 219,225,241;
   --color-blue-200: 176,189,225;
   --color-blue-300: 115,144,203;
@@ -18,21 +14,10 @@
   --color-blue-500: 0,97,178;
   --color-blue-600: 2,82,161;
   --color-blue-700: 3,65,142;
-  --color-blue-800: 3,49,124;
-  --color-blue-900: 2,34,106;
-  --color-red-00: 255,255,255;
   --color-red-20: 253,249,248;
-  --color-red-35: 252,245,244;
-  --color-red-50: 250,239,237;
-  --color-red-100: 243,219,215;
   --color-red-200: 226,176,169;
-  --color-red-300: 200,122,112;
-  --color-red-400: 181,87,78;
   --color-red-500: 166,61,54;
   --color-red-600: 146,47,44;
-  --color-red-700: 125,35,35;
-  --color-red-800: 107,25,28;
-  --color-red-900: 89,15,21;
   --color-grey-00: 255,255,255;
   --color-grey-20: 249,250,250;
   --color-grey-35: 246,246,247;
@@ -44,20 +29,13 @@
   --color-grey-500: 88,96,112;
   --color-grey-600: 71,78,94;
   --color-grey-700: 55,61,76;
-  --color-grey-800: 41,46,60;
-  --color-grey-900: 28,32,45;
   --color-black: 0,0.6353307795189879,20.78828237830061;
-
   --color-bg: var(--color-grey-20);
   --color-body: var(--color-grey-500);
 }
 
 .theme-dark {
   /* dark theme */
-  --color-blue-00: 19,28,41;
-  --color-blue-20: 22,32,47;
-  --color-blue-35: 24,36,53;
-  --color-blue-50: 26,39,58;
   --color-blue-100: 33,51,75;
   --color-blue-200: 47,76,113;
   --color-blue-300: 65,108,161;
@@ -65,21 +43,10 @@
   --color-blue-500: 92,160,238;
   --color-blue-600: 133,178,242;
   --color-blue-700: 166,196,245;
-  --color-blue-800: 197,216,249;
-  --color-blue-900: 227,235,252;
-  --color-red-00: 40,23,20;
   --color-red-20: 47,27,24;
-  --color-red-35: 52,29,26;
-  --color-red-50: 57,32,29;
-  --color-red-100: 74,42,37;
   --color-red-200: 110,62,55;
-  --color-red-300: 156,87,78;
-  --color-red-400: 199,110,99;
   --color-red-500: 231,127,115;
   --color-red-600: 239,153,141;
-  --color-red-700: 246,178,169;
-  --color-red-800: 251,204,197;
-  --color-red-900: 254,229,226;
   --color-grey-00: 19,28,41;
   --color-grey-20: 24,32,45;
   --color-grey-35: 27,36,49;
@@ -94,7 +61,6 @@
   --color-grey-800: 211,215,222;
   --color-grey-900: 233,235,238;
   --color-black: 0,0,0;
-
   --color-bg: var(--color-grey-20);
   --color-body: var(--color-grey-500);
 }
@@ -102,10 +68,6 @@
 @media (prefers-color-scheme: dark) {
   :root:not(.theme-light) {
     /* dark theme */
-    --color-blue-00: 19,28,41;
-    --color-blue-20: 22,32,47;
-    --color-blue-35: 24,36,53;
-    --color-blue-50: 26,39,58;
     --color-blue-100: 33,51,75;
     --color-blue-200: 47,76,113;
     --color-blue-300: 65,108,161;
@@ -113,21 +75,10 @@
     --color-blue-500: 92,160,238;
     --color-blue-600: 133,178,242;
     --color-blue-700: 166,196,245;
-    --color-blue-800: 197,216,249;
-    --color-blue-900: 227,235,252;
-    --color-red-00: 40,23,20;
     --color-red-20: 47,27,24;
-    --color-red-35: 52,29,26;
-    --color-red-50: 57,32,29;
-    --color-red-100: 74,42,37;
     --color-red-200: 110,62,55;
-    --color-red-300: 156,87,78;
-    --color-red-400: 199,110,99;
     --color-red-500: 231,127,115;
     --color-red-600: 239,153,141;
-    --color-red-700: 246,178,169;
-    --color-red-800: 251,204,197;
-    --color-red-900: 254,229,226;
     --color-grey-00: 19,28,41;
     --color-grey-20: 24,32,45;
     --color-grey-35: 27,36,49;
@@ -170,8 +121,6 @@ body {
   /* modular scale */ 
   
   --ratio: 1.2;
-  --font-size-10: calc(var(--base-font-size) / var(--ratio) / var(--ratio) / var(--ratio) / var(--ratio)); /* -4 */
-  --font-size-20: calc(var(--base-font-size) / var(--ratio) / var(--ratio) / var(--ratio)); /* -3 */
   --font-size-30: calc(var(--base-font-size) / var(--ratio) / var(--ratio)); /* -2 */
   --font-size-40: calc(var(--base-font-size) / var(--ratio)); /* -1 */
   --font-size-50: var(--base-font-size);
@@ -264,13 +213,13 @@ body {
 
 p {
   margin: 0;
-  padding: calc(var(--space) - 2px) 0 calc(var(--space-2x) + 2px); /*  adjust baseline */
+  padding: calc(var(--space) - 2px) 0 calc(var(--space-2x) + 2px);
 }
 
 p.is-large {
   font-size: var(--font-size-70);
   line-height: var(--space-4x);
-  padding: var(--space) 0 var(--space-2x); /*  adjust baseline */
+  padding: var(--space) 0 var(--space-2x);
 }
 
 p + :not(p) {
@@ -281,12 +230,9 @@ p + :not(p) {
 
 h1,
 .is-h1 {
-  /* box */
   display: inline-block;
   margin: 0;
   padding: calc(var(--space-2x) + 2px) 0 calc(var(--space) - 2px);
-
-  /* type */
   color: rgba(var(--color-grey-700), 1);
   font-size: var(--font-size-110);
   font-weight: 700;
@@ -299,8 +245,6 @@ h2,
 .is-h2 {
   margin: 0;
   padding: calc(var(--space) + 1px) 0 calc(var(--space-2x) - 1px);
-
-  /* type */
   color: rgba(var(--color-grey-700), 1);
   font-size: var(--font-size-100);
   font-weight: 700;
@@ -318,8 +262,6 @@ h3,
 .is-h3 {
   margin: 0;
   padding: calc(var(--space) - 3px) 0 calc(var(--space-2x) + 3px);
-
-  /* type */
   color: rgba(var(--color-grey-700), 1);
   font-size: var(--font-size-60);
   font-weight: 700;
@@ -339,8 +281,6 @@ hr {
   height: var(--space-3x);
   margin: 0;
   padding: var(--space-3x) 0 calc(var(--space-3x) - 1px);
-
-  /* type */
   background: transparent;
   border: 0;
   box-shadow: 0 -1px 0 0 rgba(var(--color-grey-50), 1);
@@ -476,7 +416,6 @@ input[type="button"].is-reset:active,
 :any-link[role="button"].is-reset:active {
   background: rgba(var(--color-red-500), 1);
   color: rgba(var(--color-red-20), 1);
-
   box-shadow: 0 0 0 1px rgba(var(--color-red-600), 1) inset, 
     var(--box-shadow-s);
 }
@@ -944,21 +883,6 @@ td {
   letter-spacing: 0.03em;
 }
 
-[role="menu"] .menu__title {
-  font-weight: var(--font-weight-700);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-size: var(--font-size-30);
-  display: inline-block;
-  transform: translateY(2px);
-  padding: 0 24px;
-}
-
-[role="menu"] [role="menu"] {
-  margin: 0 0 var(--space-3x, 1em);
-  padding: 0;
-}
-
 li[role="menuitem"] {
   display: flex;
   flex-direction: column;
@@ -982,14 +906,12 @@ a[role="menuitem"]:not(.button)[aria-current="true"] {
   background: rgba(var(--color-grey-100), 1);
   color: rgba(var(--color-blue-700), 1);
 }
-/* components/menubutton.css */
 
 .menubutton {
   position: relative;
   display: inline-block;
 }
 
-/*  button style. see elements/button.scss */
 .menubutton > button,
 .menubutton > input[type="submit"],
 .menubutton > input[type="button"],
@@ -1010,7 +932,6 @@ a[role="menuitem"]:not(.button)[aria-current="true"] {
   margin-left: var(--space);
 }
 
-/* menu. see components/menu.scss */
 .menubutton > [role="menu"] {
   display: none;
   position: absolute;
