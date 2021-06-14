@@ -33,7 +33,6 @@
 }
 
 .theme-dark {
-  /* dark theme */
   --color-blue-100: 33,51,75;
   --color-blue-200: 47,76,113;
   --color-blue-300: 65,108,161;
@@ -65,7 +64,6 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not(.theme-light) {
-    /* dark theme */
     --color-blue-100: 33,51,75;
     --color-blue-200: 47,76,113;
     --color-blue-300: 65,108,161;
@@ -480,7 +478,6 @@ label + input {
 }
 
 a:any-link {
-  /* Selects any element that would be matched by :link or :visited */
   color: rgba(var(--color-blue-500, inherit), 1);
   text-decoration: underline;
 }
@@ -494,7 +491,6 @@ a:any-link > * + * {
   text-decoration: none;
 }
 
-/* external links */
 a:any-link[target="_blank"] { 
   padding-right: 16px;
   position: relative;
