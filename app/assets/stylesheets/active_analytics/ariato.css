@@ -252,15 +252,6 @@ small {
   color: rgba(var(--color-grey-400), 1);
 }
 
-hr {
-  height: var(--space-3x);
-  margin: 0;
-  padding: var(--space-3x) 0 calc(var(--space-3x) - 1px);
-  background: transparent;
-  border: 0;
-  box-shadow: 0 -1px 0 0 rgba(var(--color-grey-50), 1);
-}
-
 /**** BUTTONS *****/
 button,
 input[type="submit"],
@@ -427,10 +418,6 @@ input[type="reset"].is-link:focus,
   color: rgba(var(--color-grey-700), 1);
 }
 
-svg {
-  vertical-align: middle;
-}
-
 /* FORMS */
 form {
   overflow: visible;
@@ -482,10 +469,6 @@ input:focus{
   box-shadow: 
     0 0 0 2px rgba(var(--color-blue-200), 1),
     var(--box-shadow-s);
-}
-
-input:focus:not(:focus-visible) { 
-  outline: none;
 }
 
 label + input {
@@ -610,7 +593,6 @@ td {
   background: rgba(var(--color-grey-300), .7);
   z-index: var(--z-40, 90);
   animation: backdrop 0.1s cubic-bezier(0.165, 0.840, 0.440, 1.000);
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -626,8 +608,7 @@ td {
 
 /* Modale */
 
-[role="dialog"],
-[role="alertdialog"] {
+[role="dialog"] {
   position: relative;
   padding: var(--space-3x);
   background-color: rgba(var(--color-bg), 1);
@@ -640,8 +621,7 @@ td {
   animation: modale 0.5s cubic-bezier(0.165, 0.840, 0.440, 1.000);
 }
   
-[role="dialog"] > header,
-[role="alertdialog"] > header {
+[role="dialog"] > header {
   width: calc(100% + var(--space-6x));
   display: flex;
   align-items: center;
@@ -652,13 +632,11 @@ td {
   color: rgba(var(--color-grey-500), 1);
 }
 
-[role="dialog"] > header button,
-[role="alertdialog"] > header button {
+[role="dialog"] > header button {
   margin-left: auto;
 }
 
-[role="dialog"] > footer,
-[role="alertdialog"] > footer {
+[role="dialog"] > footer {
   background: rgba(var(--color-grey-50), 1);
   width: calc(100% + var(--space-6x));
   border-radius: 0 0 var(--border-radius-m, 0) var(--border-radius-m, 0);
@@ -668,8 +646,7 @@ td {
 }
 
 @media screen and (min-width: 640px) {
-  [role="dialog"],
-  [role="alertdialog"] {
+  [role="dialog"] {
     min-width: 640px;
     min-height: auto;
     box-shadow: var(--box-shadow-l);
@@ -700,8 +677,7 @@ td {
 
 .grid-auto {
   --gap: var(--space-3x);
-  --col-min-width: calc(var(--space) * 30);
-
+  --col-min-width: calc(var(--space) * 38);
   display: grid;
   grid-gap: var(--gap, 0);
   grid-template-columns: repeat(auto-fit, minmax(var(--col-min-width), 1fr));
@@ -774,7 +750,8 @@ td {
   box-shadow: 0 0 0 1px inset rgba(var(--color-grey-50), 1), var(--box-shadow-s);
   padding: var(--space-3x);
   list-style-type: none;
-  overflow: hidden;
+  position: relative;
+  overflow: visible;
 }
 
 .card > header {

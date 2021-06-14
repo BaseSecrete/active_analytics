@@ -29,6 +29,7 @@ header .logo svg {
   fill: none;
   stroke: rgba(var(--color-blue-500), 1);
   stroke-width: 1;
+  vertical-align: middle;
 }
 
 header .is-link {
@@ -62,17 +63,8 @@ section {
   margin-bottom: var(--space-4x);
 }
 
-.grid-auto {
-  --col-min-width: calc(var(--space) * 38);
-}
-
 .tooltip-date {
   color: rgba(var(--color-grey-100), 1);
-}
-
-.card {
-  position: relative;
-  overflow: visible;
 }
 
 .card h3 {
@@ -86,12 +78,8 @@ section {
 }
 
 .card table {
-  margin: 0 -24px;
+  margin: 0 -24px -24px;
   width: calc(100% + 48px);
-}
-
-.card table.charts-css {
-  margin-bottom: -24px;
 }
 
 tr td:first-of-type {
@@ -145,6 +133,7 @@ body > footer .card {
   margin: 0;
   background: rgba(var(--color-grey-50), 1);
 }
+
 body > footer .card p {
   padding: 0 0 2px;
   color: rgba(var(--color-grey-400), 1);
