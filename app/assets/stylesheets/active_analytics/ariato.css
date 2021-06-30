@@ -3,8 +3,7 @@
 /*  https://github.com/BaseSecrete/ariato  */
 /*******************************************/
 
-:root,
-.theme-light {
+:root {
   --color-blue-100: 219,225,241;
   --color-blue-200: 176,189,225;
   --color-blue-300: 115,144,203;
@@ -32,38 +31,8 @@
   --color-body: var(--color-grey-500);
 }
 
-.theme-dark {
-  --color-blue-100: 33,51,75;
-  --color-blue-200: 47,76,113;
-  --color-blue-300: 65,108,161;
-  --color-blue-400: 80,138,205;
-  --color-blue-500: 92,160,238;
-  --color-blue-600: 133,178,242;
-  --color-blue-700: 166,196,245;
-  --color-red-20: 47,27,24;
-  --color-red-200: 110,62,55;
-  --color-red-500: 231,127,115;
-  --color-red-600: 239,153,141;
-  --color-grey-00: 19,28,41;
-  --color-grey-20: 24,32,45;
-  --color-grey-35: 27,36,49;
-  --color-grey-50: 30,39,53;
-  --color-grey-100: 42,51,65;
-  --color-grey-200: 67,75,90;
-  --color-grey-300: 98,107,123;
-  --color-grey-400: 127,135,152; 
-  --color-grey-500: 148,157,174;
-  --color-grey-600: 169,176,190;
-  --color-grey-700: 190,195,206;
-  --color-grey-800: 211,215,222;
-  --color-grey-900: 233,235,238;
-  --color-black: 0,0,0;
-  --color-bg: var(--color-grey-20);
-  --color-body: var(--color-grey-500);
-}
-
 @media (prefers-color-scheme: dark) {
-  :root:not(.theme-light) {
+  :root {
     --color-blue-100: 33,51,75;
     --color-blue-200: 47,76,113;
     --color-blue-300: 65,108,161;
@@ -89,6 +58,8 @@
     --color-grey-800: 211,215,222;
     --color-grey-900: 233,235,238;
     --color-black: 0,0,0;
+    --color-bg: var(--color-grey-20);
+    --color-body: var(--color-grey-500);
   }
 }
 
