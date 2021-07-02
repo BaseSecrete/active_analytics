@@ -15,6 +15,11 @@ module ActiveAnalytics
     end
     ViewsPerDay.append(params)
   rescue => ex
-    raise if Rails.env.development? || Rails.env.test?
+    if Rails.env.development? || Rails.env.test?
+      raise ex
+    else
+      Rails.logger.error(ex.inspect)
+      Rails.logger.error(ex.backtrace.join("\n"))
+    end
   end
 end
