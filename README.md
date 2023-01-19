@@ -56,14 +56,15 @@ mount ActiveAnalytics::Engine, at: "analytics"  # http://localhost:3000/analytic
 
 ## Authentication and permissions
 
-ActiveAnalytics cannot guess how you handle user authentication, because it is different for all Rails applications. So you have to monkey patch `ActiveAnalytics::ApplicationController` in order to inject your own mechanism. Create a file in `config/initializers/active_analytics.rb` to add a before action :
+ActiveAnalytics cannot guess how you handle user authentication, because it is different for all Rails applications.
+So you have to monkey patch `ActiveAnalytics::ApplicationController` in order to inject your own mechanism.
+The patch can be saved wherever you want.
+For example, I like to have all the patches in one place, so I put them in `lib/patches`.
 
 ```ruby
-# config/initializers/active_analytics.rb
-require_dependency "active_analytics/application_controller"
+# lib/patches/active_analytics.rb
 
-module ActiveAnalytics
-  class ApplicationController
+ActiveAnalytics::ApplicationController.class_eval do
     before_action :require_admin
 
     def require_admin
@@ -74,7 +75,18 @@ module ActiveAnalytics
 end
 ```
 
-If you have Devise, you can check the permission directly from routes.rb :
+Then you have to require the monkey patch.
+Because it's loaded via require, it won't be reloaded in development.
+Since you are not supposed to change this file often, it should not be an issue.
+
+```ruby
+# config/application.rb
+config.after_initialize do
+  require "patches/active_analytics"
+end
+```
+
+If you use Devise, you can check the permission directly from routes.rb :
 
 ```ruby
 # config/routes.rb
