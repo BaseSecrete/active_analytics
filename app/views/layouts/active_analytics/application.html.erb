@@ -6,8 +6,10 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "active_analytics/application", media: "all" %>
-    <%= javascript_include_tag "active_analytics/application" %>
+    <%= tag.link rel: "stylesheet", href: asset_path(:ariato, format: :css) %>
+    <%= tag.link rel: "stylesheet", href: asset_path(:application, format: :css) %>
+    <%= tag.script "", src: asset_path(:ariato, format: :js) %>
+    <%= tag.script "", src: asset_path(:application, format: :js) %>
   </head>
 
   <body>

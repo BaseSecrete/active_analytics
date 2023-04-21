@@ -1,5 +1,3 @@
-//= require active_analytics/ariato
-
 ActiveAnalytics = {}
 
 ActiveAnalytics.Header = function() {
