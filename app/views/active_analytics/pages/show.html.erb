@@ -1,5 +1,8 @@
 <section>
-  <h2><%= page_from_params %></h2>
+  <h2>
+    <%= page_from_params %>
+    <%= link_to "", File.join("https://", params[:site], page_from_params), target: "_blank" %>
+  </h2>
 </section>
 
 <section class="card">
