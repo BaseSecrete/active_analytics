@@ -37,8 +37,8 @@
   <header id="custom-range-title">Custom range</header>
   <%= form_tag url_for(params.except(:from, :to).to_unsafe_hash), method: "get", id: "dateRangeForm" do %>
     <div role="group" class="is-block">
-      <label>From <%= text_field_tag :from, params[:from] %></label>
-      <label>To <%= text_field_tag :to, params[:to] %></label>
+      <label>From <%= date_field_tag :from, params[:from] %></label>
+      <label>To <%= date_field_tag :to, params[:to] %></label>
     </div>
   <% end %>
   <footer>
