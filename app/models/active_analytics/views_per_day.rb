@@ -37,8 +37,10 @@ module ActiveAnalytics
       attr_reader :bars, :from_date, :to_date
 
       def initialize(scope, from_date, to_date)
+        @scope = scope
+        @from_date, @to_date = from_date, to_date
         @bars = scope.map { |day| Bar.new(day.day, day.total, self) }
-        fill_missing_days(@bars, Date.parse(from_date.to_s), Date.parse(to_date.to_s))
+        fill_missing_days(@bars, @from_date, @to_date)
       end
 
       def fill_missing_days(bars, from, to)

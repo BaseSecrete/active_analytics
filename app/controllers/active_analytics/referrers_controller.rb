@@ -5,14 +5,16 @@ module ActiveAnalytics
     before_action :require_date_range
 
     def index
-      scope = ViewsPerDay.where(site: params[:site]).between_dates(params[:from], params[:to])
-      @referrers = scope.top(100).group_by_referrer_site
-      @histogram = ViewsPerDay::Histogram.new(scope.order_by_date.group_by_date, params[:from], params[:to])
+      @referrers = current_views_per_days.top(100).group_by_referrer_site
+      @histogram = ViewsPerDay::Histogram.new(current_views_per_days.order_by_date.group_by_date, from_date, to_date)
+      @previous_histogram = ViewsPerDay::Histogram.new(previous_views_per_days.order_by_date.group_by_date, previous_from_date, previous_to_date)
     end
 
     def show
-      scope = ViewsPerDay.where(site: params[:site], referrer_host: params[:referrer]).between_dates(params[:from], params[:to])
-      @histogram = ViewsPerDay::Histogram.new(scope.order_by_date.group_by_date, params[:from], params[:to])
+      scope = current_views_per_days.where(referrer_host: params[:referrer])
+      previous_scope = previous_views_per_days.where(referrer_host: params[:referrer])
+      @histogram = ViewsPerDay::Histogram.new(scope.order_by_date.group_by_date, from_date, to_date)
+      @previous_histogram = ViewsPerDay::Histogram.new(previous_scope.order_by_date.group_by_date, previous_from_date, previous_to_date)
       @previous_pages = scope.top(100).group_by_referrer_page
       @next_pages = scope.top(100).group_by_page
     end
