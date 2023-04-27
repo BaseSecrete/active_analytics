@@ -7,11 +7,18 @@
     <% for referrer in referrers %>
       <tr>
         <td>
-          <% if referrer.host %>
+          <% if referrer.try(:path) %>
+            <%= site_icon referrer.host %>
+            <% if referrer.host == params[:site] %>
+              <%= link_to referrer.path, page_path(site: referrer.host, page: page_to_params(referrer.path), from: params[:from], to: params[:to]) %>
+            <% else %>
+              <%= link_to referrer.url, referrer_path(site: params[:site], referrer: referrer.url.chomp("/"), from: params[:from], to: params[:to]) %>
+            <% end %>
+          <% elsif referrer.host %>
             <%= site_icon referrer.host %>
             <%= link_to referrer.host, referrer_path(site: params[:site], referrer: referrer.host, from: params[:from], to: params[:to]) %>
           <% else %>
-            <%= referrer.host %>
+            (None or direct)
           <% end %>
           </td>
         <td class="number"><%= format_view_count referrer.total %></td>

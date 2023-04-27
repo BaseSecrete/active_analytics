@@ -11,7 +11,9 @@ module ActiveAnalytics
     end
 
     def show
-      scope = current_views_per_days.where(referrer_host: params[:referrer])
+      referrer_host, referrer_path = params[:referrer].split("/", 2)
+      scope = current_views_per_days.where(referrer_host: referrer_host)
+      scope = scope.where(referrer_path: "/" + referrer_path) if referrer_path.present?
       previous_scope = previous_views_per_days.where(referrer_host: params[:referrer])
       @histogram = ViewsPerDay::Histogram.new(scope.order_by_date.group_by_date, from_date, to_date)
       @previous_histogram = ViewsPerDay::Histogram.new(previous_scope.order_by_date.group_by_date, previous_from_date, previous_to_date)

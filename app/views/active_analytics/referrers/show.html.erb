@@ -1,5 +1,8 @@
 <section>
-  <h2>Source: <%= params[:referrer] %></h2>
+  <h2>
+    Source: <%= params[:referrer] %>
+    <%= link_to "", File.join("https://", params[:referrer]), target: "_blank" %>
+  </h2>
 </section>
 
 <section class="card">
@@ -9,7 +12,7 @@
 <ul class="grid-auto">
   <li class="card">
     <h3>Source page</h3>
-    <%= render "/active_analytics/pages/table", pages: @previous_pages %>
+    <%= render "/active_analytics/referrers/table", referrers: @previous_pages %>
   </li>
 
   <li class="card">
