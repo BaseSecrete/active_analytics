@@ -2,6 +2,8 @@ require_dependency "active_analytics/application_controller"
 
 module ActiveAnalytics
   class AssetsController < ApplicationController
+    protect_from_forgery except: :show
+
     def show
       if endpoints.include?(File.basename(request.path))
         expires_in(1.day, public: true)
