@@ -32,7 +32,21 @@ rails active_analytics:install:migrations
 rails db:migrate
 ```
 
-Your controllers have to call `ActiveAnalytics.record_request(request)` to record page views. The Rails way to achieve is to use `after_action` :
+Add the route to ActiveAnalytics dashboard at the desired endpoint:
+
+```ruby
+# config/routes.rb
+mount ActiveAnalytics::Engine, at: "analytics"  # http://localhost:3000/analytics
+```
+
+The next step is to collect trafic and there is 2 options.
+
+### Record requests synchronously
+
+This is the easiest way to start with.
+However it's less performant since it triggers a write into your database for each request.
+Your controllers have to call `ActiveAnalytics.record_request(request)` to record page views.
+The Rails way to achieve is to use `after_action` :
 
 ```ruby
 class ApplicationController < ActionController::Base
@@ -52,11 +66,54 @@ end
 
 In case you don't want to record all page views, because each application has sensitive URLs such as password reset and so on, simply define a `skip_after_action :record_page_view` in the relevant controller.
 
-Finally, just add the route to ActiveAnalytics dashboard at the desired endpoint:
+### Queue requests asynchronously
+
+It requires more work and it's relevant if your application handle a large trafic.
+The idea is to queue data into Redis because it does not require the database writing to the disk on each request.
+First you have to set the Redis URL or connection.
 
 ```ruby
-mount ActiveAnalytics::Engine, at: "analytics"  # http://localhost:3000/analytics
+# File lib/patches/active_analytics.rb or config/initializers/active_analytics.rb
+
+ActiveAnalytics.redis_url = "redis://user:password@host/1" # Default ENV["REDIS_URL"] || "redis://localhost"
+
+# If you use special connection options you have to instantiate it yourself
+ActiveAnalytics.redis = Redis.new(
+  url: ENV["REDIS_URL"],
+  reconnect_attempts: 10,
+  ssl_params: {verify_mode: OpenSSL::SSL::VERIFY_NONE}
+)
 ```
+
+Then your controllers have to call `ActiveAnalytics.queue_request(request)` to queue page views.
+The Rails way to achieve is to use `after_action` :
+
+```ruby
+class ApplicationController < ActionController::Base
+  after_action :queue_page_view
+
+  def queue_page_view
+    # This is a basic example, you might need to customize some conditions.
+    # For most sites, it makes no sense to record anything other than HTML.
+    if response.content_type && response.content_type.start_with?("text/html")
+      # Add a condition to record only your canonical domain
+      # and use a gem such as crawler_detect to skip bots.
+      ActiveAnalytics.queue_request(request)
+    end
+  end
+end
+```
+
+Queued data need to be saved into the database in order to be viewable in the ActiveAnalytics dashboard.
+For that, call `ActiveAnalytics.flush_queue` from a cron task or a background job.
+
+It's up to you if you want to flush the queue every hour or every 10 minutes.
+I advise to execute the last flush of the day at 23:59.
+It prevents from shifting the trafic to the next day.
+In that case only the last minute will be shifted to the next day, even if the flush ends after midnight.
+This small imperfection allows a simpler implementation for now.
+Keep it simple !
+
 
 ## Authentication and permissions
 
