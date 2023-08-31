@@ -3,7 +3,7 @@
  * Copyright 2020 Rami Yushuvaev
  * Licensed under MIT
  */
-.charts-css {
+ .active-analytics .charts-css {
   --chart-bg-color: transparent;
   --heading-size: 0px;
   --primary-axis-color: rgba(var(--color-grey-100), 1);
@@ -27,10 +27,12 @@
  * Chart wrapper element
  */
 
-.charts-css, .charts-css::after, .charts-css::before,
-.charts-css *,
-.charts-css *::after,
-.charts-css *::before {
+.active-analytics .charts-css,
+.active-analytics .charts-css::after,
+.active-analytics .charts-css::before,
+.active-analytics .charts-css *,
+.active-analytics .charts-css *::after,
+.active-analytics .charts-css *::before {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -38,7 +40,7 @@
 /*
  * Reset table element
  */
-table.charts-css {
+.active-analytics table.charts-css {
   border-collapse: collapse;
   border-spacing: 0;
   empty-cells: show;
@@ -46,13 +48,13 @@ table.charts-css {
   background-color: transparent;
 }
 
-table.charts-css caption,
-table.charts-css colgroup,
-table.charts-css thead,
-table.charts-css tbody,
-table.charts-css tr,
-table.charts-css th,
-table.charts-css td {
+.active-analytics table.charts-css caption,
+.active-analytics table.charts-css colgroup,
+.active-analytics table.charts-css thead,
+.active-analytics table.charts-css tbody,
+.active-analytics table.charts-css tr,
+.active-analytics table.charts-css th,
+.active-analytics table.charts-css td {
   display: block;
   margin: 0;
   padding: 0;
@@ -60,9 +62,9 @@ table.charts-css td {
   background-color: transparent;
 }
 
-table.charts-css colgroup,
-table.charts-css thead,
-table.charts-css tfoot {
+.active-analytics table.charts-css colgroup,
+.active-analytics table.charts-css thead,
+.active-analytics table.charts-css tfoot {
   display: none;
 }
 
@@ -71,25 +73,25 @@ table.charts-css tfoot {
  * Chart colors
  */ 
 
- .charts-css.column tbody tr td {
-   background: rgba(var(--color-grey-100), 1);
-   padding: 0;
- }
+.active-analytics .charts-css.column tbody tr td {
+  background: rgba(var(--color-grey-100), 1);
+  padding: 0;
+}
 
 /*
  * Chart data
  */
-.charts-css.hide-data .data {
+.active-analytics .charts-css.hide-data .data {
   opacity: 0;
 }
 
-.charts-css.show-data-on-hover .data {
+.active-analytics .charts-css.show-data-on-hover .data {
   -webkit-transition-duration: .3s;
           transition-duration: .3s;
   opacity: 0;
 }
 
-.charts-css.show-data-on-hover tr:hover .data {
+.active-analytics .charts-css.show-data-on-hover tr:hover .data {
   -webkit-transition-duration: .3s;
           transition-duration: .3s;
   opacity: 1;
@@ -99,19 +101,19 @@ table.charts-css tfoot {
  * Chart labels
  */
 
-.charts-css.column:not(.show-labels) {
+.active-analytics .charts-css.column:not(.show-labels) {
   --labels-size: 0;
 }
 
-.charts-css.column:not(.show-labels) tbody tr th {
+.active-analytics .charts-css.column:not(.show-labels) tbody tr th {
   display: none;
 }
 
-.charts-css.column.show-labels {
+.active-analytics .charts-css.column.show-labels {
   --labels-size: 1.5rem;
 }
 
-.charts-css.column.show-labels tbody tr th {
+.active-analytics .charts-css.column.show-labels tbody tr th {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -128,11 +130,11 @@ table.charts-css tfoot {
 }
 
 @media (max-width: 600px) {
-  .charts-css.column.show-labels {
+  .active-analytics .charts-css.column.show-labels {
     --labels-size: 0;
   }
   
-  .charts-css.column.show-labels tbody tr th {
+  .active-analytics .charts-css.column.show-labels tbody tr th {
     display: none;
   }
 }
@@ -140,23 +142,23 @@ table.charts-css tfoot {
 /*
  * Chart axes
  */
-.charts-css.column.show-primary-axis:not(.reverse) tbody tr {
+.active-analytics .charts-css.column.show-primary-axis:not(.reverse) tbody tr {
   -webkit-border-after: var(--primary-axis-width) var(--primary-axis-style) var(--primary-axis-color);
           border-block-end: var(--primary-axis-width) var(--primary-axis-style) var(--primary-axis-color);
 }
 
-.charts-css.column.show-primary-axis.reverse tbody tr {
+.active-analytics .charts-css.column.show-primary-axis.reverse tbody tr {
   -webkit-border-before: var(--primary-axis-width) var(--primary-axis-style) var(--primary-axis-color);
           border-block-start: var(--primary-axis-width) var(--primary-axis-style) var(--primary-axis-color);
 }
 
-.charts-css.column.show-5-secondary-axes:not(.reverse) tbody tr {
+.active-analytics .charts-css.column.show-5-secondary-axes:not(.reverse) tbody tr {
   background-size: 100% 20%;
   background-image: -webkit-gradient(linear, left top, left bottom, from(var(--secondary-axes-color)), to(transparent));
   background-image: linear-gradient(var(--secondary-axes-color) var(--secondary-axes-width), transparent var(--secondary-axes-width));
 }
 
-.charts-css.column.show-5-secondary-axes.reverse tbody tr {
+.active-analytics .charts-css.column.show-5-secondary-axes.reverse tbody tr {
   background-size: 100% 20%;
   background-image: -webkit-gradient(linear, left bottom, left top, from(var(--secondary-axes-color)), to(transparent));
   background-image: linear-gradient(0deg, var(--secondary-axes-color) var(--secondary-axes-width), transparent var(--secondary-axes-width));
@@ -165,7 +167,7 @@ table.charts-css tfoot {
 /*
  * Chart tooltips
  */
-.charts-css .tooltip {
+.active-analytics .charts-css .tooltip {
   position: absolute;
   z-index: 1;
   bottom: 50%;
@@ -187,7 +189,7 @@ table.charts-css tfoot {
   font-size: .9rem;
 }
 
-.charts-css .tooltip::after {
+.active-analytics .charts-css .tooltip::after {
   content: "";
   position: absolute;
   top: 100%;
@@ -198,7 +200,7 @@ table.charts-css tfoot {
   border-color: rgba(var(--color-grey-500), 1) transparent transparent;
 }
 
-.charts-css tr:hover .tooltip {
+.active-analytics .charts-css tr:hover .tooltip {
   visibility: visible;
   opacity: 1;
 }
@@ -206,7 +208,7 @@ table.charts-css tfoot {
 /*
  * Column Chart
  */
-.charts-css.column tbody {
+.active-analytics .charts-css.column tbody {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -220,7 +222,7 @@ table.charts-css tfoot {
   height: calc(100% - var(--heading-size));
 }
 
-.charts-css.column tbody tr {
+.active-analytics .charts-css.column tbody tr {
   position: relative;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
@@ -239,13 +241,13 @@ table.charts-css tfoot {
   min-width: 0;
 }
 
-.charts-css.column tbody tr th {
+.active-analytics .charts-css.column tbody tr th {
   position: absolute;
   right: 0;
   left: 0;
 }
 
-.charts-css.column tbody tr td {
+.active-analytics .charts-css.column tbody tr td {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -257,7 +259,7 @@ table.charts-css tfoot {
   position: relative;
 }
 
-.charts-css.column:not(.reverse) tbody tr {
+.active-analytics .charts-css.column:not(.reverse) tbody tr {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
@@ -265,20 +267,20 @@ table.charts-css tfoot {
           margin-block-end: var(--labels-size);
 }
 
-.charts-css.column:not(.reverse) tbody tr th {
+.active-analytics .charts-css.column:not(.reverse) tbody tr th {
   bottom: calc(-1 * var(--labels-size) - var(--primary-axis-width));
   height: var(--labels-size);
   color: rgba(var(--color-grey-400), 1);
   font-weight: 400;
 }
 
-.charts-css.column:not(.reverse) tbody tr td {
+.active-analytics .charts-css.column:not(.reverse) tbody tr td {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
 }
 
-.charts-css.column:not(.stacked) tbody tr td {
+.active-analytics .charts-css.column:not(.stacked) tbody tr td {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -288,7 +290,7 @@ table.charts-css tfoot {
       flex-basis: 0;
 }
 
-.charts-css.column:not(.reverse-data) tbody {
+.active-analytics .charts-css.column:not(.reverse-data) tbody {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;

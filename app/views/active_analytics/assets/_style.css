@@ -1,10 +1,10 @@
-body {
+.active-analytics body {
   padding: 0;
   margin: 0;
   width: 100%;
 }
 
-body > header nav {
+.active-analytics body > header nav {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
@@ -15,15 +15,15 @@ body > header nav {
   min-height: 88px;
 }
 
-header nav .menubutton {
+.active-analytics header nav .menubutton {
   margin-left: auto;
 }
 
-header .logo {
+.active-analytics header .logo {
   margin-right: 8px;
 }
 
-header .logo svg {
+.active-analytics header .logo svg {
   width: 24px;
   height: 24px;
   fill: none;
@@ -32,7 +32,7 @@ header .logo svg {
   vertical-align: middle;
 }
 
-header .is-link {
+.active-analytics header .is-link {
   text-transform: none;
   text-decoration: none;
   font-size: 1rem;
@@ -44,62 +44,62 @@ header .is-link {
   color: rgba(var(--color-grey-700), 1);
 }
 
-header .is-link:hover {
+.active-analytics header .is-link:hover {
   background: rgba(var(--color-grey-50), 1);
 }
 
-main {
+.active-analytics main {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
-main h2 {
+.active-analytics main h2 {
   word-break: break-word;
 }
 
-section {
+.active-analytics section {
   margin-bottom: var(--space-4x);
 }
 
-.tooltip-date {
+.active-analytics .tooltip-date {
   color: rgba(var(--color-grey-100), 1);
 }
 
-.card h3 {
+.active-analytics .card h3 {
   display: flex;
 }
 
-.card h3 a {
+.active-analytics .card h3 a {
   margin-left: auto;
   font-weight: 400;
   font-size: 1rem;
 }
 
-.card table {
+.active-analytics .card table {
   margin: 0 -24px -24px;
   width: calc(100% + 48px);
 }
 
-tr td:first-of-type {
+.active-analytics tr td:first-of-type {
   padding: 12px 0px 12px 24px;
 }
 
-tr td:last-of-type {
+.active-analytics tr td:last-of-type {
   padding: 12px 24px 12px 0;
 }
 
-td a {
+.active-analytics td a {
   word-break: break-word;
 }
 
-td.number { 
+.active-analytics td.number { 
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-.referer-favicon {
+.active-analytics .referer-favicon {
   width: 16px;
   height: 16px;
   display: inline-block;
@@ -108,7 +108,7 @@ td.number {
   margin-right: 4px;
 }
 
-div.is-empty {
+.active-analytics div.is-empty {
   display: flex;
 	align-items: center;
   justify-content: center;
@@ -117,34 +117,34 @@ div.is-empty {
   color: rgba(var(--color-grey-300), 1);
 }
 
-body > footer {
+.active-analytics body > footer {
   max-width: 1280px;
   margin: 48px auto 0;
   padding: 24px;
 }
 
-body > footer ul {
+.active-analytics body > footer ul {
   margin: 0;
   list-style-type: none;
   padding: 0;
 }
 
-body > footer .card {
+.active-analytics body > footer .card {
   margin: 0;
   background: rgba(var(--color-grey-50), 1);
 }
 
-body > footer .card p {
+.active-analytics body > footer .card p {
   padding: 0 0 2px;
   color: rgba(var(--color-grey-400), 1);
 }
 
 @media (max-width: 480px) {
-  header nav .menubutton {
+  .active-analytics header nav .menubutton {
     margin-top: 24px;
   }
 
-  [role="dialog"] {
+  .active-analytics [role="dialog"] {
     min-width: 280px;
   }
 }
