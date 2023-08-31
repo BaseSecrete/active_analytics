@@ -73,6 +73,14 @@
   display: flex;
 }
 
+.active-analytics .card h3 small {
+  color: rgba(var(--color-red-500), 1);
+}
+
+.active-analytics .card h3 small.is-success {
+  color: rgba(var(--color-green-500), 1);
+}
+
 .active-analytics .card h3 a {
   margin-left: auto;
   font-weight: 400;

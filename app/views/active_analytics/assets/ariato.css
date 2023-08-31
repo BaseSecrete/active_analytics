@@ -11,12 +11,11 @@
   --color-blue-500: 0,67,184;
   --color-blue-600: 22,50,155;
   --color-blue-700: 23,20,98;
-
   --color-red-20: 253,249,248;
   --color-red-200: 233,183,173;
   --color-red-500: 164,0,27;
   --color-red-600: 123,0,15;
-
+  --color-green-500: 119,187,118;
   --color-grey-00: 255,255,248;
   --color-grey-20: 253,253,246;
   --color-grey-35: 249,249,242;
@@ -28,7 +27,6 @@
   --color-grey-500: 80,77,72;
   --color-grey-600: 59,57,51;
   --color-grey-700: 20,21,15;
-
   --color-black: 0,0.2913950572018906,0;
   --color-bg: var(--color-grey-20);
   --color-body: var(--color-grey-500);
@@ -43,12 +41,11 @@
     --color-blue-500: 135,173,250;
     --color-blue-600: 145,191,252;
     --color-blue-700: 161,208,252;
-
     --color-red-20: 47,27,24;
     --color-red-200: 103,62,59;
     --color-red-500: 244,146,140;
     --color-red-600: 248,165,157;
-
+    --color-green-500: 119,187,118;
     --color-grey-00: 14,18,26;
     --color-grey-20: 16,20,28;
     --color-grey-35: 21,25,34;
