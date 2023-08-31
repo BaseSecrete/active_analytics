@@ -3,8 +3,8 @@
     <tbody>
       <% for bar in histogram.bars %>
         <tr>
-          <th scope="row"><%= bar.label.day %></td>
-            <td style="--size: <%= bar.height %>; --color: rgba(var(--color-grey-100), 1);">
+          <th scope="row"><%= bar.label.day %></th>
+          <td style="--size: <%= bar.height %>; --color: rgba(var(--color-grey-100), 1);">
             <span class="data"><%= bar.value.to_i %></span>
             <span class="tooltip"><small class="tooltip-date"><%= l bar.label, format: :long%></small><br/><%= format_view_count bar.value %> views</span>
           </td>

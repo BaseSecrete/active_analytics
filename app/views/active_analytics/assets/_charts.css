@@ -33,8 +33,7 @@
 .active-analytics .charts-css *,
 .active-analytics .charts-css *::after,
 .active-analytics .charts-css *::before {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /*
@@ -86,14 +85,12 @@
 }
 
 .active-analytics .charts-css.show-data-on-hover .data {
-  -webkit-transition-duration: .3s;
-          transition-duration: .3s;
+  transition-duration: .3s;
   opacity: 0;
 }
 
 .active-analytics .charts-css.show-data-on-hover tr:hover .data {
-  -webkit-transition-duration: .3s;
-          transition-duration: .3s;
+  transition-duration: .3s;
   opacity: 1;
 }
 
@@ -114,19 +111,10 @@
 }
 
 .active-analytics .charts-css.column.show-labels tbody tr th {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: var(--labels-align, center);
-      -ms-flex-pack: var(--labels-align, center);
-          justify-content: var(--labels-align, center);
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  justify-content: var(--labels-align, center);
+  align-items: center;
+  flex-direction: column;
 }
 
 @media (max-width: 600px) {
@@ -143,24 +131,20 @@
  * Chart axes
  */
 .active-analytics .charts-css.column.show-primary-axis:not(.reverse) tbody tr {
-  -webkit-border-after: var(--primary-axis-width) var(--primary-axis-style) var(--primary-axis-color);
-          border-block-end: var(--primary-axis-width) var(--primary-axis-style) var(--primary-axis-color);
+  border-block-end: var(--primary-axis-width) var(--primary-axis-style) var(--primary-axis-color);
 }
 
 .active-analytics .charts-css.column.show-primary-axis.reverse tbody tr {
-  -webkit-border-before: var(--primary-axis-width) var(--primary-axis-style) var(--primary-axis-color);
-          border-block-start: var(--primary-axis-width) var(--primary-axis-style) var(--primary-axis-color);
+  border-block-start: var(--primary-axis-width) var(--primary-axis-style) var(--primary-axis-color);
 }
 
 .active-analytics .charts-css.column.show-5-secondary-axes:not(.reverse) tbody tr {
   background-size: 100% 20%;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(var(--secondary-axes-color)), to(transparent));
   background-image: linear-gradient(var(--secondary-axes-color) var(--secondary-axes-width), transparent var(--secondary-axes-width));
 }
 
 .active-analytics .charts-css.column.show-5-secondary-axes.reverse tbody tr {
   background-size: 100% 20%;
-  background-image: -webkit-gradient(linear, left bottom, left top, from(var(--secondary-axes-color)), to(transparent));
   background-image: linear-gradient(0deg, var(--secondary-axes-color) var(--secondary-axes-width), transparent var(--secondary-axes-width));
 }
 
@@ -172,16 +156,12 @@
   z-index: 1;
   bottom: 50%;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  width: -webkit-max-content;
-  width: -moz-max-content;
+  transform: translateX(-50%);
   width: max-content;
   padding: 5px 10px;
   border-radius: 6px;
   visibility: hidden;
   opacity: 0;
-  -webkit-transition: opacity .3s;
   transition: opacity .3s;
   background-color: rgba(var(--color-grey-500), 1);
   color: rgba(var(--color-grey-00), 1);
@@ -209,35 +189,22 @@
  * Column Chart
  */
 .active-analytics .charts-css.column tbody {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
+  justify-content: space-between;
+  align-items: stretch;
   width: 100%;
+  gap: 1px;
   height: calc(100% - var(--heading-size));
 }
 
 .active-analytics .charts-css.column tbody tr {
   position: relative;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  -ms-flex-negative: 1;
-      flex-shrink: 1;
-  -ms-flex-preferred-size: 0;
-      flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
   overflow-wrap: anywhere;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  justify-content: flex-start;
   min-width: 0;
 }
 
@@ -248,23 +215,16 @@
 }
 
 .active-analytics .charts-css.column tbody tr td {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   width: 100%;
   height: calc(100% * var(--size, 1));
   position: relative;
 }
 
 .active-analytics .charts-css.column:not(.reverse) tbody tr {
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  -webkit-margin-after: var(--labels-size);
-          margin-block-end: var(--labels-size);
+  align-items: flex-end;
+  margin-block-end: var(--labels-size);
 }
 
 .active-analytics .charts-css.column:not(.reverse) tbody tr th {
@@ -275,24 +235,15 @@
 }
 
 .active-analytics .charts-css.column:not(.reverse) tbody tr td {
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  align-items: flex-start;
 }
 
 .active-analytics .charts-css.column:not(.stacked) tbody tr td {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  -ms-flex-negative: 1;
-      flex-shrink: 1;
-  -ms-flex-preferred-size: 0;
-      flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
 }
 
 .active-analytics .charts-css.column:not(.reverse-data) tbody {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
 }

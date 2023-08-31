@@ -57,6 +57,8 @@
 
 .active-analytics main h2 {
   word-break: break-word;
+  display: flex;
+  gap: var(--space);
 }
 
 .active-analytics section {
