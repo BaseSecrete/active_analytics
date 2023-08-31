@@ -3,7 +3,7 @@
  * Copyright 2020 Rami Yushuvaev
  * Licensed under MIT
  */
- .active-analytics .charts-css {
+.active-analytics .charts-css {
   --chart-bg-color: transparent;
   --heading-size: 0px;
   --primary-axis-color: rgba(var(--color-grey-100), 1);
