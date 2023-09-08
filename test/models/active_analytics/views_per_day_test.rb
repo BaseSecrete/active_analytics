@@ -17,5 +17,17 @@ module ActiveAnalytics
       assert_equal(Date.tomorrow, histogram.bars[2].label)
       assert_equal(0, histogram.bars[2].value)
     end
+
+    def test_split_referrer
+      assert_equal([nil, nil], ViewsPerDay.split_referrer(nil))
+      assert_equal([nil, nil], ViewsPerDay.split_referrer(""))
+      assert_equal(["domain.test", nil], ViewsPerDay.split_referrer("domain.test"))
+      assert_equal(["domain.test", "/1"], ViewsPerDay.split_referrer("domain.test/1"))
+      assert_equal(["domain.test", "/1/2"], ViewsPerDay.split_referrer("domain.test/1/2"))
+      assert_equal(["domain.test", nil], ViewsPerDay.split_referrer("https://domain.test"))
+      assert_equal(["domain.test", "/"], ViewsPerDay.split_referrer("https://domain.test/"))
+      assert_equal(["domain.test", "/1"], ViewsPerDay.split_referrer("https://domain.test/1"))
+      assert_equal(["domain.test", "/1/2"], ViewsPerDay.split_referrer("https://domain.test/1/2"))
+    end
   end
 end

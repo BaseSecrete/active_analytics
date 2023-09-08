@@ -122,5 +122,17 @@ module ActiveAnalytics
       params[:referrer_host] = params[:referrer_host].downcase if params[:referrer_host]
       where(params).first.try(:increment!, :total, total) || create!(params.merge(total: total))
     end
+
+    SLASH = "/"
+
+    def self.split_referrer(referrer)
+      return [nil, nil] if referrer.blank?
+      if (uri = URI(referrer)).host.present?
+        [uri.host, uri.path.presence]
+      else
+        strings = referrer.split(SLASH, 2)
+        [strings[0], strings[1] ? SLASH + strings[1] : nil]
+      end
+    end
   end
 end

@@ -25,9 +25,7 @@ module ActiveAnalytics
       date: Date.today,
     }
     if request.referrer.present?
-      referrer_uri = URI(request.referrer)
-      params[:referrer_host] = referrer_uri.host
-      params[:referrer_path] = referrer_uri.path
+      params[:referrer_host], params[:referrer_path] = ViewsPerDay.split_referrer(request.referrer)
     end
     ViewsPerDay.append(params)
   rescue => ex
@@ -39,16 +37,16 @@ module ActiveAnalytics
     end
   end
 
+  SEPARATOR = "|"
   QUEUE = "ActiveAnalytics::Queue"
   OLD_QUEUE = "ActiveAnalytics::OldQueue"
 
   def self.queue_request(request)
     keys = [request.host, request.path]
     if request.referrer.present?
-      referrer = URI(request.referrer)
-      keys << referrer.host << referrer.path
+      keys.concat(ViewsPerDay.split_referrer(request.referrer))
     end
-    redis.hincrby(QUEUE, keys.join("|").downcase, 1)
+    redis.hincrby(QUEUE, keys.join(SEPARATOR).downcase, 1)
   end
 
   def self.flush_queue
@@ -57,7 +55,7 @@ module ActiveAnalytics
     date = Date.today
     redis.rename(QUEUE, OLD_QUEUE)
     redis.hscan_each(OLD_QUEUE) do |key, count|
-      site, page, referrer_host, referrer_path = key.split("|")
+      site, page, referrer_host, referrer_path = key.split(SEPARATOR)
       ViewsPerDay.append(date: date, site: site, page: page, referrer_host: referrer_host, referrer_path: referrer_path, total: count.to_i)
     end
     redis.del(OLD_QUEUE)
