@@ -2,9 +2,9 @@
   <%= format_view_count current_total = histogram.total %> views
   <% if (previous_total = previous_histogram.total) > 0 %>
     <% if (diff = current_total - previous_total) > 0 %>
-      &nbsp;<small>+<%= number_to_percentage diff * 100.0 / previous_total, precision: 0 %></small>
-    <% else %>
-      &nbsp;<small><%= number_to_percentage diff * 100.0 / previous_total, precision: 0 %></small>
+      &nbsp;<small class="is-success">+<%= number_to_percentage diff * 100.0 / previous_total, precision: 0 %></small>
+    <% elsif (diff = current_total - previous_total) < 0 %>
+      &nbsp;<small class="is-danger"><%= number_to_percentage diff * 100.0 / previous_total, precision: 0 %></small>
     <% end %>
   <% end %>
 </h3>

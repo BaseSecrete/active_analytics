@@ -70,7 +70,11 @@ module ActiveAnalytics
         end
 
         def height
-          (value.to_f / histogram.max_value).round(2)
+          if histogram.max_value > 0
+            (value.to_f / histogram.max_value).round(2)            
+          else
+            0
+          end
         end
       end
     end
