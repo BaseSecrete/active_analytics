@@ -7,7 +7,7 @@ module ActiveAnalytics
   end
 
   def self.redis_url
-    @redis_url ||= ENV["REDIS_URL"] || "redis://localhost"
+    @redis_url ||= ENV["ACTIVE_ANALYTICS_REDIS_URL"] || ENV["REDIS_URL"] || "redis://localhost"
   end
 
   def self.redis=(connection)

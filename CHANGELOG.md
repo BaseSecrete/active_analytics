@@ -29,3 +29,4 @@
 *   Prevent chart NaN
 *   Add trend labels color
 *   Remove unused css
+*   Add environment variable ACTIVE_ANALYTICS_REDIS_URL

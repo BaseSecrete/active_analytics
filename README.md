@@ -75,7 +75,7 @@ First you have to set the Redis URL or connection.
 ```ruby
 # File lib/patches/active_analytics.rb or config/initializers/active_analytics.rb
 
-ActiveAnalytics.redis_url = "redis://user:password@host/1" # Default ENV["REDIS_URL"] || "redis://localhost"
+ActiveAnalytics.redis_url = "redis://user:password@host/1" # Default ENV["ACTIVE_ANALYTICS_REDIS_URL"] || ENV["REDIS_URL"] || "redis://localhost"
 
 # If you use special connection options you have to instantiate it yourself
 ActiveAnalytics.redis = Redis.new(
