@@ -156,6 +156,10 @@ authenticate :user, -> (u) { u.admin? } do # Supposing there is a User#admin? me
 end
 ```
 
+## Development
+
+The tests require redis to run. You can fire up a service using `docker run -p 6379:6379 redis`.
+
 ## License
 The gem is available as open-source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 

@@ -2,7 +2,52 @@ require "test_helper"
 
 module ActiveAnalytics
   class ViewsPerDayTest < ActiveSupport::TestCase
+    def test_user_agent_columns_migrated
+      assert_equal([:browser, :device_type, :operating_system], ViewsPerDay.user_agent_columns)
+    end
+
+    def test_group_by_site_multiple_browser
+      ViewsPerDay.create!(site: "rorvswild.com", page: "/", date: Date.today, browser: :firefox, total: 1)
+      ViewsPerDay.create!(site: "rorvswild.com", page: "/", date: 2.days.ago, browser: :chrome, total: 10)
+      ViewsPerDay.create!(site: "rorvswild.com", page: "/", date: 3.days.ago, browser: :safari, total: 100)
+      ViewsPerDay.create!(site: "rorvswild.com", page: "/", date: 4.days.ago, browser: :firefox, total: 1000)
+
+      sites = ViewsPerDay.group_by_site
+      assert_equal(1, sites.size)
+      rorvswild_com = sites.first
+      assert_equal(1111, rorvswild_com.total)
+      assert_equal({ firefox: 1001, chrome: 10, safari: 100 }, rorvswild_com.browsers)
+    end
+
+    def test_group_by_site_multiple_device_type
+      ViewsPerDay.create!(site: "rorvswild.com", page: "/", date: Date.today, device_type: :phone, total: 1)
+      ViewsPerDay.create!(site: "rorvswild.com", page: "/", date: 2.days.ago, device_type: :tablet, total: 10)
+      ViewsPerDay.create!(site: "rorvswild.com", page: "/", date: 3.days.ago, device_type: :desktop, total: 100)
+      ViewsPerDay.create!(site: "rorvswild.com", page: "/", date: 4.days.ago, device_type: :phone, total: 1000)
+
+      sites = ViewsPerDay.group_by_site
+      assert_equal(1, sites.size)
+      rorvswild_com = sites.first
+      assert_equal(1111, rorvswild_com.total)
+      assert_equal({ phone: 1001, tablet: 10, desktop: 100 }, rorvswild_com.device_types)
+    end
+
+    def test_group_by_site_multiple_operating_system
+      ViewsPerDay.create!(site: "rorvswild.com", page: "/", date: Date.today, operating_system: :linux, total: 1)
+      ViewsPerDay.create!(site: "rorvswild.com", page: "/", date: 2.days.ago, operating_system: :windows, total: 10)
+      ViewsPerDay.create!(site: "rorvswild.com", page: "/", date: 3.days.ago, operating_system: :android, total: 100)
+      ViewsPerDay.create!(site: "rorvswild.com", page: "/", date: 4.days.ago, operating_system: :linux, total: 1000)
+
+      sites = ViewsPerDay.group_by_site
+      assert_equal(1, sites.size)
+      rorvswild_com = sites.first
+      assert_equal(1111, rorvswild_com.total)
+      assert_equal({ linux: 1001, windows: 10, android: 100 }, rorvswild_com.operating_systems)
+    end
+
     def test_histogram
+      ViewsPerDay.create!(site: "rorvswild.com", page: "/", date: Date.today, total: 1)
+
       scope = ViewsPerDay.where(site: "rorvswild.com").order_by_date.group_by_date
       histogram = ViewsPerDay::Histogram.new(scope, Date.yesterday, Date.tomorrow)
 

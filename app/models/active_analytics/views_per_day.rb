@@ -8,10 +8,19 @@ module ActiveAnalytics
     scope :order_by_date, -> { order(:date) }
     scope :top, -> (n = 10) { order_by_totals.limit(n) }
 
+    def self.user_agent_columns
+      @@user_agent_columns ||= [:browser, :device_type, :operating_system]
+                                 .select {|n| ViewsPerDay.column_names.include?(n.to_s)}
+    end
+
+    def self.unique_by_columns
+      @@unique_by_columns ||= [:date, :site, :page, :referrer_path, :referrer_host].concat(self.user_agent_columns)
+    end
+
     class Site
-      attr_reader :host, :total
-      def initialize(host, total)
-        @host, @total = host, total
+      attr_reader :host, :total, :browsers, :device_types, :operating_systems
+      def initialize(host, total, browsers, device_types, operating_systems)
+        @host, @total, @browsers, @device_types, @operating_systems = host, total, browsers, device_types, operating_systems
       end
     end
 
@@ -71,7 +80,7 @@ module ActiveAnalytics
 
         def height
           if histogram.max_value > 0
-            (value.to_f / histogram.max_value).round(2)            
+            (value.to_f / histogram.max_value).round(2)
           else
             0
           end
@@ -80,9 +89,25 @@ module ActiveAnalytics
     end
 
     def self.group_by_site
-      group(:site).pluck("site, SUM(total)").map do |row|
-        Site.new(row[0], row[1])
-      end
+      group(:site, :browser, :device_type, :operating_system)
+        .pluck("site, browser, device_type, operating_system, SUM(total)")
+        .to_a
+        .group_by { |r| r[0] }
+        .map do |site_name, grouped_site|
+          total_sum = 0
+          browsers = Hash.new(0)
+          device_types = Hash.new(0)
+          operating_systems = Hash.new(0)
+
+          grouped_site.each do |row|
+            total_group = row[4].to_i
+            browsers[row[1].to_sym] += total_group if row[1]
+            device_types[row[2].to_sym] += total_group if row[2]
+            operating_systems[row[3].to_sym] += total_group if row[3]
+            total_sum += total_group
+          end
+          Site.new(site_name, total_sum, browsers, device_types, operating_systems)
+        end
     end
 
     def self.group_by_page
@@ -114,13 +139,24 @@ module ActiveAnalytics
     end
 
     def self.append(params)
-      total = params.delete(:total) || 1
-      params[:site] = params[:site].downcase if params[:site]
-      params[:page] = params[:page].downcase if params[:page]
-      params[:referrer_path] = nil if params[:referrer_path].blank?
-      params[:referrer_path] = params[:referrer_path].downcase if params[:referrer_path]
-      params[:referrer_host] = params[:referrer_host].downcase if params[:referrer_host]
-      where(params).first.try(:increment!, :total, total) || create!(params.merge(total: total))
+      increment = params[:total] || 1
+      params[:referrer_path] = "" if params[:referrer_path].blank?
+      [:site, :page, :referrer_path, :referrer_host].each do |attr|
+        params[attr] = if params[attr]
+                         params[attr].downcase
+                       else
+                         ""
+                       end
+      end
+
+      record = ViewsPerDay.upsert(
+        params,
+        unique_by: ViewsPerDay.unique_by_columns,
+        on_duplicate: Arel.sql("total = total + #{increment.to_i}"),
+        record_timestamps: false
+      )
+
+      # where(params).first.try(:increment!, :total, increment.to_i) || create!(params.merge(total: increment))
     end
 
     SLASH = "/"
