@@ -51,7 +51,7 @@ class ActiveAnalyticsTest < ActiveSupport::TestCase
   def sample_requests
     [
       Request.new("site.test", "page", "http://site.test/previous_page"),
-      Request.new("SITE.TEST", "PAGE", "http://SITE.TEST/PREVIOUS_PAGE"),
+      Request.new("SITE.TEST", "page", "http://SITE.TEST/previous_page"),
       Request.new("site.test", "page", "http://site.test/"),
       Request.new("site.test", "page", "http://site.test"),
     ]

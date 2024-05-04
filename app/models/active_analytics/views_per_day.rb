@@ -116,7 +116,6 @@ module ActiveAnalytics
     def self.append(params)
       total = params.delete(:total) || 1
       params[:site] = params[:site].downcase if params[:site]
-      params[:page] = params[:page].downcase if params[:page]
       params[:referrer_path] = nil if params[:referrer_path].blank?
       params[:referrer_path] = params[:referrer_path].downcase if params[:referrer_path]
       params[:referrer_host] = params[:referrer_host].downcase if params[:referrer_host]
