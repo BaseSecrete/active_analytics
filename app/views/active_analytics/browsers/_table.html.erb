@@ -1,0 +1,17 @@
+<% if browsers.empty? %>
+  <div class="is-empty">
+    <span>no data</span>
+  </div>
+<% else %>
+  <table>
+    <% for browser in browsers %>
+      <tr>
+        <td>
+          <%#= TODO: Browser icon %>
+          <%= link_to browser.name, browser_path(site: params[:site], id: browser, from: params[:from], to: params[:to]) %>
+        </td>
+        <td class="number"><%= format_view_count browser.total %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

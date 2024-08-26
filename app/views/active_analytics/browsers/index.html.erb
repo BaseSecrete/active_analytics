@@ -1,0 +1,9 @@
+<section class="card">
+  <%= render "/active_analytics/sites/histogram_header", histogram: @histogram, previous_histogram: @previous_histogram %>
+  <%= render "/active_analytics/sites/histogram", histogram: @histogram %>
+</section>
+
+<section class="card">
+  <h3>Browsers</h3>
+  <%= render "/active_analytics/browsers/table", browsers: @browsers %>
+</section>

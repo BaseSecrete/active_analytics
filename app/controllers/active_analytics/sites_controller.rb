@@ -14,6 +14,7 @@ module ActiveAnalytics
       @previous_histogram = Histogram.new(previous_views_per_days.order_by_date.group_by_date, previous_from_date, previous_to_date)
       @referrers = current_views_per_days.top.group_by_referrer_site
       @pages = current_views_per_days.top.group_by_page
+      @browsers = BrowsersPerDay.filter_by(params).group_by_name.top
     end
   end
 end

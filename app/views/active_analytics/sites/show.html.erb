@@ -13,4 +13,9 @@
     <h3>Pages <%= link_to "view all", pages_path(from: params[:from], to: params[:to]) %></h3>
     <%= render "/active_analytics/pages/table", pages: @pages %>
   </li>
+
+  <li class="card">
+    <h3>Browsers <%= link_to "view all", browsers_path(from: params[:from], to: params[:to]) %></h3>
+    <%= render "/active_analytics/browsers/table", browsers: @browsers %>
+  </li>
 </ul>

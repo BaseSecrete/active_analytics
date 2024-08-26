@@ -1,0 +1,17 @@
+<section>
+  <h2>
+    Browser: <%= params[:id] %>
+  </h2>
+</section>
+
+<section class="card">
+  <%= render "/active_analytics/sites/histogram_header", histogram: @histogram, previous_histogram: @previous_histogram %>
+  <%= render "/active_analytics/sites/histogram", histogram: @histogram %>
+</section>
+
+<ul class="grid-auto">
+  <li class="card">
+    <h3>Versions</h3>
+    <%= render "/active_analytics/browsers/version_table", browsers: @browsers %>
+  </li>
+</ul>
