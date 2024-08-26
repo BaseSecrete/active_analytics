@@ -2,6 +2,7 @@
 
 ## Unrealeased
 
+-   Record browser statistics from user agent
 -   Added `base_controller_class` configuration option to allow specifying a custom base controller for the ActiveAnalytics dashboard,
     enhancing flexibility in diverse application architectures.
 
