@@ -9,5 +9,4 @@ group :development do
   gem "redis"
 end
 
-# To use a debugger
-# gem 'byebug', group: [:development, :test]
+gem "browser"

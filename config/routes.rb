@@ -6,6 +6,10 @@ ActiveAnalytics::Engine.routes.draw do
   get "/:site/referrers", to: "referrers#index", constraints: {site: /[^\/]+/}, as: :referrers
   get "/:site/referrers/*referrer", to: "referrers#show", as: :referrer, constraints: {site: /[^\/]+/, referrer: /.+/}
 
+  # Browsers
+  get "/:site/browsers", to: "browsers#index", constraints: {site: /[^\/]+/}, as: :browsers
+  get "/:site/browsers/:id", to: "browsers#show", constraints: {site: /[^\/]+/}, as: :browser
+
   # Pages
   get "/:site/pages", to: "pages#index", constraints: {site: /[^\/]+/}, as: :pages
   get "/:site/*page", to: "pages#show", as: :page, constraints: {site: /[^\/]+/}
