@@ -4,7 +4,7 @@ module ActiveAnalytics
   class ViewsPerDayTest < ActiveSupport::TestCase
     def test_histogram
       scope = ViewsPerDay.where(site: "rorvswild.com").order_by_date.group_by_date
-      histogram = ViewsPerDay::Histogram.new(scope, Date.yesterday, Date.tomorrow)
+      histogram = Histogram.new(scope, Date.yesterday, Date.tomorrow)
 
       assert_equal(3, histogram.bars.size)
 
