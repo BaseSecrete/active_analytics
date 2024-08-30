@@ -26,13 +26,6 @@ module ActiveAnalytics
       end
     end
 
-    class Day
-      attr_reader :day, :total
-      def initialize(day, total)
-        @day, @total = day, total
-      end
-    end
-
     def self.group_by_site
       group(:site).pluck("site, SUM(total)").map do |row|
         Site.new(row[0], row[1])
@@ -58,9 +51,7 @@ module ActiveAnalytics
     end
 
     def self.group_by_date
-      group(:date).pluck("date, SUM(total)").map do |row|
-        Day.new(row[0], row[1])
-      end
+      group(:date).select("date, sum(total) AS total")
     end
 
     def self.to_histogram

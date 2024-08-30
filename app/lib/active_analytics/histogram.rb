@@ -5,7 +5,7 @@ module ActiveAnalytics
     def initialize(scope, from_date, to_date)
       @scope = scope
       @from_date, @to_date = from_date, to_date
-      @bars = scope.map { |day| Bar.new(day.day, day.total, self) }
+      @bars = scope.map { |record| Bar.new(record.date, record.total, self) }
       fill_missing_days(@bars, @from_date, @to_date)
     end
 
