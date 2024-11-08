@@ -2,7 +2,7 @@ require "active_analytics/version"
 require "active_analytics/engine"
 
 module ActiveAnalytics
-  mattr_accessor :base_controller_class
+  mattr_accessor :base_controller_class, default: "ActionController::Base"
 
   def self.redis_url=(string)
     @redis_url = string
