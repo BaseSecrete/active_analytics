@@ -2,6 +2,8 @@
 
 ### Unrealeased
 
+*   Added `base_controller_class` configuration option to allow specifying a custom base controller for the ActiveAnalytics dashboard,
+    enhancing flexibility in diverse application architectures.
 *   Queue requests to reduce the load on database writes
 
     Database writes are slow. On large trafic applications it might overload the database.

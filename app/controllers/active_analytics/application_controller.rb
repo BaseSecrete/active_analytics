@@ -1,5 +1,6 @@
 module ActiveAnalytics
-  class ApplicationController < ActionController::Base
+  class ApplicationController < ActiveAnalytics.base_controller_class.constantize
+    layout "active_analytics/application"
 
     private
 
