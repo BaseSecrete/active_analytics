@@ -38,6 +38,15 @@ Add the route to ActiveAnalytics dashboard at the desired endpoint:
 # config/routes.rb
 mount ActiveAnalytics::Engine, at: "analytics"  # http://localhost:3000/analytics
 ```
+By default ActiveAnalytics will extend `ActionController::Base`, but you can specify a custom base controller for the ActiveAnalytics dashboard:
+
+```ruby
+# config/initializers/active_analytics.rb
+Rails.application.configure do
+  ActiveAnalytics.base_controller_class = "ApplicationController"
+end
+```
+
 
 The next step is to collect trafic and there is 2 options.
 
