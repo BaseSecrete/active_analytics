@@ -43,7 +43,7 @@ By default ActiveAnalytics will extend `ActionController::Base`, but you can spe
 ```ruby
 # config/initializers/active_analytics.rb
 Rails.application.configure do
-  ActiveAnalytics.base_controller_class = "ApplicationController"
+  ActiveAnalytics.base_controller_class = "AdminController"
 end
 ```
 
