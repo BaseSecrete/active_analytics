@@ -2,6 +2,8 @@ require "active_analytics/version"
 require "active_analytics/engine"
 
 module ActiveAnalytics
+  mattr_accessor :base_controller_class
+
   def self.redis_url=(string)
     @redis_url = string
   end
