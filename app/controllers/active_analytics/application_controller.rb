@@ -2,6 +2,9 @@ module ActiveAnalytics
   class ApplicationController < ActiveAnalytics.base_controller_class.constantize
     layout "active_analytics/application"
 
+    helper PagesHelper
+    helper SitesHelper
+
     private
 
     def from_date
