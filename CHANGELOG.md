@@ -1,9 +1,12 @@
 # Changelog of ActiveAnalytics
 
-### Unrealeased
+## Unrealeased
 
-*   Added `base_controller_class` configuration option to allow specifying a custom base controller for the ActiveAnalytics dashboard,
+-   Added `base_controller_class` configuration option to allow specifying a custom base controller for the ActiveAnalytics dashboard,
     enhancing flexibility in diverse application architectures.
+
+## Version 0.3 (2023-09-15)
+
 *   Queue requests to reduce the load on database writes
 
     Database writes are slow. On large trafic applications it might overload the database.
