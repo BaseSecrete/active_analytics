@@ -4,6 +4,7 @@ module ActiveAnalytics
 
     helper PagesHelper
     helper SitesHelper
+    helper BrowsersHelper
 
     private
 
