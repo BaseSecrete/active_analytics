@@ -5,12 +5,12 @@
 
 <ul class="grid-auto">
   <li class="card">
-    <h3>Top sources <%= link_to "view all", referrers_path(from: params[:from], to: params[:to]) %></h3>
+    <h3>Sources <%= link_to "view all", referrers_path(from: params[:from], to: params[:to]) %></h3>
     <%= render "/active_analytics/referrers/table", referrers: @referrers %>
   </li>
 
   <li class="card">
-    <h3>Top pages <%= link_to "view all", pages_path(from: params[:from], to: params[:to]) %></h3>
+    <h3>Pages <%= link_to "view all", pages_path(from: params[:from], to: params[:to]) %></h3>
     <%= render "/active_analytics/pages/table", pages: @pages %>
   </li>
 </ul>
