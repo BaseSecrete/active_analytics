@@ -1,4 +1,4 @@
-<% if histogram.bars.count > 1 %>
+<% if histogram.bars.count.between?(2, 31) %>
   <table class="charts-css column show-primary-axis show-5-secondary-axes hide-data <%= "show-labels" if histogram.bars.count < 32 %>" style="height: calc(var(--space-2x) * 8);">
     <tbody>
       <% for bar in histogram.bars %>
