@@ -1,5 +1,6 @@
 ActiveAnalytics::Engine.routes.draw do
-  resources :assets, only: [:show]
+  get "/assets/*file", to: "assets#show", constraints: {file: /.+/}, as: :asset
+
   get "/:site", to: "sites#show", as: :site, constraints: {site: /[^\/]+/}
 
   # Referrers
