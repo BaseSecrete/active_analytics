@@ -16,6 +16,7 @@ Simple traffic analytics for the win of privacy.
 * **Sources**: What are the pages and domains that bring some traffic.
 * **Page views**: What are the pages that are the most viewed in your application.
 * **Next/previous page**: What are the entry and exit pages for a given page of your application.
+* **Browser statistics**: What browsers and which versions are visiting your site.
 
 <img src="app/assets/images/active_analytics_screenshot.png" alt="active analytics logo" style="max-width: 100%; margin: 24px 0;" />
 
