@@ -1,6 +1,6 @@
 # Changelog of ActiveAnalytics
 
-## Unrealeased
+## Version 0.3.0 (2025-03-06)
 
 -   Record browser statistics from user agent
 -   Added `base_controller_class` configuration option to allow specifying a custom base controller for the ActiveAnalytics dashboard,
