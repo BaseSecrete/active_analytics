@@ -10,7 +10,8 @@ class CreateActiveAnalyticsViewsPerDays < ActiveRecord::Migration[5.2]
       t.timestamps
     end
     add_index :active_analytics_views_per_days, [:date, :site, :page]
-    add_index :active_analytics_views_per_days, [:date, :site, :referrer_host, :referrer_path]
+    add_index :active_analytics_views_per_days, [:date, :site, :referrer_host, :referrer_path],
+              name: 'index_views_per_days_on_date_site_referrer_host_referrer_path'
   end
 
   def down
