@@ -1,6 +1,6 @@
 # Changelog of ActiveAnalytics
 
-## Unreleased
+## Version 0.4.1 (2025-03-13)
 
 -   Shortened index name in migration to prevent argument error (index name too long)
 
