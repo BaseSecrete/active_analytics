@@ -1,6 +1,10 @@
 # Changelog of ActiveAnalytics
 
-## Version 0.3.0 (2025-03-06)
+## Unreleased
+
+-   Shortened index name in migration to prevent argument error (index name too long)
+
+## Version 0.4.0 (2025-03-06)
 
 -   Record browser statistics from user agent
 -   Added `base_controller_class` configuration option to allow specifying a custom base controller for the ActiveAnalytics dashboard,
