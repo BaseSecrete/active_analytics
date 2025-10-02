@@ -88,8 +88,14 @@
 }
 
 .active-analytics .card table {
-  margin: 0 -24px -24px;
-  width: calc(100% + 48px);
+  margin: 0 -22px -22px;
+  width: calc(100% + 44px);
+}
+
+@media (min-width: 600px) {
+  .active-analytics .card table {
+    margin-bottom: -18px;
+  }
 }
 
 .active-analytics tr td:first-of-type {
