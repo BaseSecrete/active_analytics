@@ -6,16 +6,16 @@
 .active-analytics .charts-css {
   --chart-bg-color: transparent;
   --heading-size: 0px;
-  --primary-axis-color: rgba(var(--color-grey-100), 1);
+  --primary-axis-color: var(--color-grey-100);
   --primary-axis-style: solid;
   --primary-axis-width: 1px;
-  --secondary-axes-color: rgba(var(--color-grey-50), 1);
+  --secondary-axes-color: var(--color-grey-50);
   --secondary-axes-style: solid;
   --secondary-axes-width: 1px;
-  --data-axes-color: rgba(var(--color-grey-200), 1);
+  --data-axes-color: var(--color-grey-200);
   --data-axes-style: solid;
   --data-axes-width: 1px;
-  --legend-border-color: rgba(var(--color-grey-200), 1);
+  --legend-border-color: var(--color-grey-200);
   position: relative;
   display: block;
   margin: 0;
@@ -73,7 +73,7 @@
  */ 
 
 .active-analytics .charts-css.column tbody tr td {
-  background: rgba(var(--color-grey-100), 1);
+  background: var(--color-grey-100);
   padding: 0;
 }
 
@@ -163,8 +163,8 @@
   visibility: hidden;
   opacity: 0;
   transition: opacity .3s;
-  background-color: rgba(var(--color-grey-500), 1);
-  color: rgba(var(--color-grey-00), 1);
+  background-color: var(--color-grey-500);
+  color: var(--color-grey-00);
   text-align: center;
   font-size: .9rem;
 }
@@ -177,7 +177,7 @@
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: rgba(var(--color-grey-500), 1) transparent transparent;
+  border-color: var(--color-grey-500) transparent transparent;
 }
 
 .active-analytics .charts-css tr:hover .tooltip {
@@ -230,7 +230,7 @@
 .active-analytics .charts-css.column:not(.reverse) tbody tr th {
   bottom: calc(-1 * var(--labels-size) - var(--primary-axis-width));
   height: var(--labels-size);
-  color: rgba(var(--color-grey-400), 1);
+  color: var(--color-grey-400);
   font-weight: 400;
 }
 
