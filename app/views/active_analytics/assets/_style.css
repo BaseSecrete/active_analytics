@@ -10,6 +10,7 @@
   margin: 0 auto;
   padding: 24px;
   display: flex;
+  gap: var(--space-3x) 0;
   flex-wrap: wrap;
   align-items: center;
   min-height: 88px;
@@ -167,7 +168,6 @@
   }
 
   .active-analytics header nav .menubutton {
-    margin-top: 24px;
     margin-left: 0;
     width: 100%;
   }
