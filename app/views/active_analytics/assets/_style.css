@@ -156,8 +156,20 @@
 }
 
 @media (max-width: 480px) {
+  .active-analytics body > header nav,
+  .active-analytics body > footer {
+    padding: 16px;
+  }
+
+  .active-analytics main {
+    padding: 0 16px;
+    overflow-x: hidden;
+  }
+
   .active-analytics header nav .menubutton {
     margin-top: 24px;
+    margin-left: 0;
+    width: 100%;
   }
 
   .active-analytics [role="dialog"] {
