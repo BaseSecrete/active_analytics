@@ -93,12 +93,6 @@
   width: calc(100% + 44px);
 }
 
-@media (min-width: 600px) {
-  .active-analytics .card table {
-    margin-bottom: -18px;
-  }
-}
-
 .active-analytics tr td:first-of-type {
   padding: 12px 0px 12px 24px;
 }

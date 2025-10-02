@@ -39,12 +39,19 @@
 /*
  * Reset table element
  */
-.active-analytics table.charts-css {
+.active-analytics .card table.charts-css {
   border-collapse: collapse;
   border-spacing: 0;
   empty-cells: show;
   overflow: initial;
   background-color: transparent;
+  margin: 0 -22px -22px;
+}
+
+@media (min-width: 600px) {
+  .active-analytics .card table.charts-css {
+    margin-bottom: -18px;
+  }
 }
 
 .active-analytics table.charts-css caption,
