@@ -1,7 +1,6 @@
 <h2>Site views in the last 30 days</h2>
 <div class="card">
   <table>
-    </tr>
     <% for site in @sites %>
       <tr>
         <td><%= link_to site.host, site_path(site: site.host) %></td>
